@@ -1,0 +1,7 @@
+[user]
+	name = Harsh Bhatt
+	email = codingenesis@gmail.com
+[credential]
+	helper = cache --timeout=3600
+[cola]
+	spellcheck = false
