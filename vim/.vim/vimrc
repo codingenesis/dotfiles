@@ -1,0 +1,29 @@
+call plug#begin('~/.vim/plugged')
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+Plug 'tpope/vim-sensible'
+
+Plug 'jiangmiao/auto-pairs'
+
+Plug 'scrooloose/nerdcommenter'
+
+Plug 'Yggdroot/indentLine'
+
+Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+set laststatus=2
+
+Plug 'nathanaelkane/vim-indent-guides'
+
+
+call plug#end()
