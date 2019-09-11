@@ -1,0 +1,17 @@
+pane	gbox	1	:bash	1	:*	1	:/home/codin	1	bash	:
+pane	host	1	:weechat	0	:#	1	:/home/codin	1	weechat	:weechat
+pane	host	2	:git	0	:	1	:/home/codin/Dropbox/git/public_repos	1	bash	:
+pane	host	3	:bash_it	0	:	1	:/home/codin/.bash_it	1	bash	:
+pane	host	3	:bash_it	0	:	2	:/home/codin	0	bash	:
+pane	host	4	:vim	0	:	1	:/home/codin	0	vim	:vim .bashrc
+pane	host	4	:vim	0	:	2	:/home/codin/.bash_it/aliases	1	vim	:vim custom.aliases.bash
+pane	host	5	:vim	0	:#-	1	:/home/codin	1	vim	:vim .exports
+pane	host	6	:htop	1	:*	1	:/home/codin	1	bash	:
+window	gbox	1	1	:*	5cd0,191x43,0,0,11
+window	host	1	0	:#	b93f,191x43,0,0,2
+window	host	2	0	:	b941,191x43,0,0,4
+window	host	3	0	:	d6d6,191x43,0,0{95x43,0,0,5,95x43,96,0,10}
+window	host	4	0	:	d6db,191x43,0,0{95x43,0,0,7,95x43,96,0,12}
+window	host	5	0	:#-	5cd2,191x43,0,0,13
+window	host	6	1	:*	5cd7,191x43,0,0,18
+state	host	
