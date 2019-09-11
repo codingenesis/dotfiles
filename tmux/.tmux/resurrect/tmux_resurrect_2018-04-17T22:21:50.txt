@@ -1,0 +1,9 @@
+pane	3	1	:bash	1	:*	1	:/home/codin	1	bash	:
+pane	HomeServ	1	:codin@genesis:/var/lib/libvirt	0	:-	1	:/home/codin	1	bash	:
+pane	HomeServ	2	:bash	1	:*	1	:/home/codin	1	bash	:
+pane	docker	1	:bash	1	:*	1	:/home/codin	1	bash	:
+window	3	1	1	:*	b542,191x42,0,0,5
+window	HomeServ	1	0	:-	b53d,191x42,0,0,0
+window	HomeServ	2	1	:*	b53e,191x42,0,0,1
+window	docker	1	1	:*	b53f,191x42,0,0,2
+state	docker	

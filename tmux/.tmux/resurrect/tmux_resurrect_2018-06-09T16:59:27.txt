@@ -1,0 +1,21 @@
+pane	HomeServ	1	:codin@genesis:/var/lib/libvirt	0	:	1	:/home/codin	1	ssh	:ssh codin@192.168.1.107 -p 444
+pane	HomeServ	2	:bash	0	:-	1	:/home/codin	1	vim	:vim .aliases
+pane	HomeServ	3	:bash	1	:*	1	:/home/codin	1	bash	:
+pane	dcluster	1	:dm1	0	:-	1	:/home/codin	1	bash	:
+pane	dcluster	2	:ds1	0	:	1	:/home/codin	1	bash	:
+pane	dcluster	3	:ds2	0	:	1	:/home/codin	1	bash	:
+pane	dcluster	4	:dm2	0	:	1	:/home/codin	1	bash	:
+pane	dcluster	5	:ds3	0	:	1	:/home/codin	1	bash	:
+pane	dcluster	6	:ds4	0	:	1	:/home/codin	1	bash	:
+pane	dcluster	7	:~/.tmux.conf.local	1	:*	1	:/home/codin	1	sh	:tmux source /home/codin/.tmux.conf
+window	HomeServ	1	0	:	bd3e,191x44,0,0,1
+window	HomeServ	2	0	:-	bd3f,191x44,0,0,2
+window	HomeServ	3	1	:*	bd43,191x44,0,0,6
+window	dcluster	1	0	:-	bd44,191x44,0,0,7
+window	dcluster	2	0	:	bd45,191x44,0,0,8
+window	dcluster	3	0	:	bd46,191x44,0,0,9
+window	dcluster	4	0	:	5ecf,191x44,0,0,10
+window	dcluster	5	0	:	5ed0,191x44,0,0,11
+window	dcluster	6	0	:	5ed1,191x44,0,0,12
+window	dcluster	7	1	:*	5ed2,191x44,0,0,13
+state	dcluster	

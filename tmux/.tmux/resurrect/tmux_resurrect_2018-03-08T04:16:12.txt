@@ -1,0 +1,13 @@
+pane	docker	1	:bash	1	:*	1	:/home/codin	1	bash	:
+pane	host	1	:WeeChat 2.0.1	0	:#	1	:/home/codin	1	weechat	:weechat
+pane	host	2	:git	0	:	1	:/home/codin/Dropbox/git/roam/bee-ml	1	bash	:
+pane	host	3	:editing	0	:-	1	:/home/codin	1	bash	:
+pane	host	4	:admin	1	:*	1	:/home/codin	1	bash	:
+pane	root	1	:bash	1	:*	1	:/home/codin	1	bash	:sudo -i
+window	docker	1	1	:*	b543,191x42,0,0,6
+window	host	1	0	:#	b53e,191x42,0,0,1
+window	host	2	0	:	b53f,191x42,0,0,2
+window	host	3	0	:-	b540,191x42,0,0,3
+window	host	4	1	:*	b541,191x42,0,0,4
+window	root	1	1	:*	b542,191x42,0,0,5
+state	root	docker
