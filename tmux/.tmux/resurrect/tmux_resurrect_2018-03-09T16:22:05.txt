@@ -1,9 +1,0 @@
-pane	docker	1	:bash	1	:*	1	:/home/codin	1	bash	:
-pane	host	1	:WeeChat 2.0.1	1	:*	1	:/home/codin	1	weechat	:weechat
-pane	host	2	:bash	0	:-	1	:/home/codin	1	bash	:
-pane	root	1	:bash	1	:*	1	:/home/codin	1	bash	:
-window	docker	1	1	:*	b25e,80x24,0,0,1
-window	host	1	1	:*	b944,191x43,0,0,7
-window	host	2	0	:-	b945,191x43,0,0,8
-window	root	1	1	:*	b543,191x42,0,0,6
-state	host	

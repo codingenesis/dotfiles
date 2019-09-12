@@ -1,7 +1,0 @@
-pane	host	1	:weechat	0	:#	1	:/home/codin	1	weechat	:weechat
-pane	host	2	:bash	1	:*	1	:/home/codin/Dropbox/git	1	bash	:
-pane	host	3	:bash	0	:-	1	:/home/codin	1	bash	:
-window	host	1	0	:#	b93f,191x43,0,0,2
-window	host	2	1	:*	b941,191x43,0,0,4
-window	host	3	0	:-	b942,191x43,0,0,5
-state	host	
