@@ -48,7 +48,7 @@ modules-right = cpu memory volume date powermenu
 
 [bar/left_top]
 inherit = bar/default
-monitor = VGA1
+monitor = HDMI-0
 modules-left = i3_left 
 modules-center = xwindow
 modules-right = 
@@ -64,7 +64,7 @@ border-left-color = #002f343f
 
 [bar/left_bot]
 inherit = bar/default
-monitor = VGA1
+monitor = HDMI-0
 modules-left = i3_left
 modules-center = xwindow
 modules-right = weather gmail
@@ -80,7 +80,7 @@ border-left-color = #002f343f
 
 [bar/center_top]
 inherit = bar/default
-monitor = HDMI2
+monitor = DP-1
 modules-left = i3_center
 modules-center = cpu spotify memory
 modules-right = pkg powermenu
@@ -110,7 +110,7 @@ tray-scale = 1.0
 
 [bar/center_bot]
 inherit = bar/default
-monitor = HDMI2
+monitor = DP-1
 modules-left = weather info-trash filesystem
 ;modules-center = myip
 modules-center = isrunning-openvpn wired system-uptime-pretty
@@ -130,7 +130,7 @@ border-left-color = #002f343f
 
 [bar/right_top]
 inherit = bar/default
-monitor = HDMI1
+monitor = DVI-D-1
 modules-left = i3_right 
 ;modules-center = bitcoin ethereum fuel omisego stellar
 modules-center = 
@@ -148,7 +148,7 @@ border-left-color = #002f343f
 
 [bar/right_bot]
 inherit = bar/default
-monitor = HDMI1
+monitor = DVI-D-1
 modules-left = i3_right
 modules-center =
 modules-right = info-trash kernel system-uptime-pretty

@@ -264,36 +264,34 @@ set $WS19 9. 
 set $WS20 0. 
 
 set $WS11 1. 
-set $WS12 2.
+set $WS12 2. 
 set $WS13 3. 
 set $WS14 4. 
 set $WS15 5. 
 
-workspace "0 " output HDMI2
-workspace "1  " output HDMI2
-workspace "2 " output HDMI2
-workspace "3 " output HDMI2
-workspace "4  " output HDMI2
-workspace "5  " output HDMI2
-#workspace "6 " output HDMI2
-workspace "6  " output HDMI2
-workspace "7  " output HDMI2
-workspace "8  " output HDMI2
-workspace "9  " output HDMI2
+workspace "0 "    output DP-1     #empty
+workspace "1  "  output DP-1     #done
+workspace "2 "   output DP-1     #empty
+workspace "3 "   output DP-1     #done
+workspace "4  "  output DP-1     #done
+workspace "5  "  output DP-1 
+#workspace "6 "  output HDMI2
+workspace "6  "  output DP-1     #buggy
+workspace "7  "  output DP-1     #done
+workspace "8  "  output DP-1     #empty
+workspace "9  "  output DP-1     #buggy
 
-workspace "1. " output VGA1
-workspace "2. " output VGA1
-workspace "3. " output VGA1
-workspace "4. " output VGA1
-workspace "5. " output VGA1
+workspace "1. "  output HDMI-0   #done
+workspace "2. "  output HDMI-0   #done
+workspace "3. "  output HDMI-0   #done
+workspace "4. "  output HDMI-0   #empty
+workspace "5. "  output HDMI-0   #done
 
-#workspace "6.  " output HDMI1
-workspace "6.  " output HDMI1
-workspace "7.  " output HDMI1
-workspace "8.  " output HDMI1
-workspace "9. " output HDMI1
-workspace "0.  " output HDMI1
-
+workspace "6.  " output DVI-D-1  #done
+workspace "7.  " output DVI-D-1  #done
+workspace "8.  " output DVI-D-1  #done
+workspace "9. "  output DVI-D-1   #done
+workspace "0.  " output DVI-D-1  #empty
 
 ##======================================================================================
 ##======================================================================================
@@ -304,26 +302,26 @@ workspace "0.  " output HDMI1
 
 assign [class="Thunar"] $WS3
 assign [class="Nautilus"] $WS3
-assign [class="Firefox"] $WS4
+assign [class="Navigator"] $WS4
 assign [class="Google-chrome"] $WS5
 assign [class="Chromium"] $WS5
 assign [class="Vivaldi-stable"] $WS6
 assign [class="Spotify"] $WS6
-assign [class="Vlc"] $WS7
+assign [class="vlc"] $WS7
 #assign [class="realvnc-vncviewer"] $WS8
 assign [class="Virt-manager"] $WS9
 
 assign [class="Filezilla"] $WS11
-
+assign [class="Trello"] $WS12
 assign [class="Transmission-gtk"] $WS13
-assign [class="Anydesk"] $WS14
-
+#assign [class="Anydesk"] $WS14
 assign [class="Skype"] $WS15
+assign [class="skype"] $WS15
 assign [class="obs"] $WS16
 assign [class="Opera"] $WS17
 assign [class="Slack"] $WS18
 assign [class="Hexchat"] $WS19
-assign [class="Nylas Mail"] $WS20
+#assign [class="Nylas Mail"] $WS20
 
 ##======================================================================================
 ##======================================================================================

@@ -49,9 +49,9 @@ modules-right = cpu memory volume date powermenu
 [bar/left_top]
 inherit = bar/default
 monitor = VGA1
-modules-left = i3_left weather
+modules-left = i3_left 
 modules-center = xwindow
-modules-right = info-trash filesystem
+modules-right = 
 bottom = false
 border-bottom-size = 3
 border-bottom-color = #002f343f
@@ -80,22 +80,22 @@ border-left-color = #002f343f
 
 [bar/center_top]
 inherit = bar/default
-monitor = HDMI2
-modules-left = i3_center
+monitor = DP-1
+modules-left = i3_center system-uptime-pretty
 modules-center = cpu spotify memory
 modules-right = pkg powermenu
 module-margin = 1
 module-rounded = 5
 padding-left = 1
-radius = 0.9
+radius = 0.5
 bottom = false
 border-bottom-size = 5
 border-bottom-color = #002f343f
 border-top-size = 5
 border-top-color = #002f343f
-border-right-size = 15
+border-right-size = 5
 border-right-color = #002f343f
-border-left-size = 15
+border-left-size = 5
 broder-left-color = #002f343f
 tray-position = right
 tray-detached = false
@@ -110,11 +110,11 @@ tray-scale = 1.0
 
 [bar/center_bot]
 inherit = bar/default
-monitor = HDMI2
-modules-left = 
+monitor = DP-1
+modules-left = weather info-trash filesystem
 ;modules-center = myip
-modules-center = 
-modules-right =  
+modules-center = isrunning-openvpn wired
+modules-right =  date compton redshift
 radius = 0.5
 line-size = 1
 line-color = ${colors.backgroundRgba}
@@ -131,10 +131,10 @@ border-left-color = #002f343f
 [bar/right_top]
 inherit = bar/default
 monitor = HDMI1
-modules-left = i3_right system-uptime-pretty
+modules-left = i3_right 
 ;modules-center = bitcoin ethereum fuel omisego stellar
-modules-center = isrunning-openvpn wired myip
-modules-right = volume date compton redshift
+modules-center = 
+modules-right = 
 padding-left = 3
 bottom = false
 border-bottom-size = 5
@@ -341,8 +341,7 @@ format-prefix-padding = 2
 format-prefix-foreground = ${colors.backgroundRgba}
 format-prefix-background = ${colors.blueScreen1}
 format-background = ${colors.backgroundRgba}
-label = %{F#86D555}%percentage_used:3%%%{F-} 
-(%{F#88D555}%gb_used:5%%{F-}/%{F#86D555}%gb_free:5%%{F-})
+label = %{F#86D555}%percentage_used:3%%%{F-} (%{F#ffed47}%gb_used:5%%{F-}/%{F#ffb647}%gb_free:5%%{F-})
 format-foreground = ${colors.blueScreen1}
 label-foreground = ${colors.foreground}
 
