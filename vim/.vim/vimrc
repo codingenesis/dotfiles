@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-" On-demand loading
+" Plugs to make VIM super usable
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -25,5 +25,141 @@ set laststatus=2
 
 Plug 'nathanaelkane/vim-indent-guides'
 
-
 call plug#end()
+
+
+"My Customization
+
+set number
+syntax on
+set clipboard=unnamed
+set titleold=""
+set title
+set hidden
+set wildignore=*.o,*.obj,.git,*.pyc,*.png,*.jpg,*.gif,*.exe,*.gif
+" TODO: customize wildmenu ":help wildmenu"
+set nowrap " (default: off) word wrap just reenable this when needed
+set backspace=indent,eol,start
+set history=1000 " (default: 50) number of commands remembered in :history (: command list)
+set incsearch " (default: off) jump to instant match when beginning to type a search
+set undolevels=1000 " (default: 100)
+set autoindent " (default: off)
+set scrolloff=1 " Minimal number of screen lines to keep above and below the cursor. (When moving up or down in scrolls).
+set sidescrolloff=5
+set smartindent " (default: off)
+" Do smart autoindenting when starting a new line.
+set splitbelow " (default: off)
+if &encoding ==# 'latin1' && has('gui_running')
+  set encoding=utf-8 " (default: latin1)
+endif
+set termencoding=utf-8 " (default: '')
+scriptencoding=utf-8 " (default: '')
+" see: http://rbtnn.hateblo.jp/entry/2014/12/28/010913
+set autoread " (default: off) Auto-detect file changes and warn.
+set makeef=error.err " (default: '') Name of the errorfile for the :make command, see :make_makeprg
+set showfulltag " (default: off) Completion shows arguments on completion of a word (function).
+set expandtab " (default: off) Use spaces instead of tabs
+set nomodeline " (default: on, off for root)
+"disable modelines (embedded vim configurations)
+set laststatus=2 " (default: 1) always show statusbar
+set formatoptions+=j " Delete comment character when joining commented lines
+setglobal tags-=./tags tags-=./tags; tags^=./tags;
+set shell=/bin/bash
+set complete-=i " turn off: scan current and included files
+set nrformats-=octal " do not increment zero-prefixed numbers as octal
+set display+=lastline
+set history=1000
+set tabpagemax=50
+set sessionoptions-=options
+set undoreload=10000
+" Enable tab conversion, Use a width of 4 to tab
+set smarttab
+set softtabstop=2
+set tabstop=2
+set shiftwidth=2
+set hlsearch
+" make searches case-sensitive only if they contain upper-case
+set ignorecase smartcase
+set t_Co=256
+set colorcolumn=80
+set timeoutlen=2000 " (default: 1000) leader-wait time
+" set ttimeout | set ttimeoutlen=20
+" mouse support changing windows etc. (works in PuTTY as well on windows)
+" NOTE: weird bug, leaving a VM GUEST with HOST KEY on VirtualBox
+" and clicking in Vim window opens :help
+"set mouse=nvc
+set background=light
+let mapleader = ','
+" fix mouse drag resize splits in tmux
+  if !empty(&viminfo)
+    set viminfo^=!
+  endif
+  if exists('$TMUX')
+    set ttymouse=xterm2
+  endif
+  let g:netrw_silent=1
+"
+
+" (Avoid redrawing the screen and reducing performance over SSH)
+  if ($SSH_CLIENT || $SSH_TTY)
+    set lazyredraw " (default: off)
+        ¦       ¦  " screen will not be redrawn while executing macros
+        ¦       ¦  " registers and other commands that have not been typed.
+    set number " (default: off)
+    set noshowcmd
+        ¦       ¦     " NOTE: Use :redraw,:redraw! or <C-L> to redraw syntax
+    set synmaxcol=100 " (default: 3000) makes syntax in long files much faster
+        ¦       ¦     " match-parens (e.g. brackets can hang on you)
+        ¦       ¦     " :optioons (help) maximum column to look for syntax items
+    let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+    set noshowmode " (default: on)
+  else
+    set showcmd " Show normal mode commands to the right when typed
+    set number
+"    set relativenumber
+    set report=0 " (default: 2) will report even if 1 line is yanked.
+  endif
+"
+
+" If this is SSH with X11 - enable clipboard :)
+  if exists($DISPLAY) && ($SSH_CLIENT || $SSH_TTY)
+    let g:x11_forward=1
+    set clipboard=unnamedplus
+  else
+    let g:x11_forward=0
+  endif
+"
+
+" platform-detection, soon to be plugin
+  let g:platform = 0
+  let g:distro = 0
+  " more distros to detect:
+  "https://www.novell.com/coolsolutions/feature/11251.htm://www.novell.com/coolsolutions/feature/11251.html
+  let g:uname = substitute(system('uname'), '\n\+$', '', '')
+  let g:slash='/'
+  if filereadable('/etc/debian_version')
+      let g:platform='Linux'
+      if !empty(system("grep 'Microsoft' '/proc/version'"))
+        " Windows Subsystem for Linux
+        let g:distro='WSL'
+      else
+        let g:distro='Debian'
+      endif
+  elseif has('mac')
+      let g:platform='Darwin'
+      let g:distro='OS X'
+  elseif g:uname ==# 'FreeBSD'
+      let g:platform='FreeBSD'
+  elseif has('unix')
+      let g:platform='UNIX'
+  elseif has('win32') || has('win64') "win32 also matches on win64 so redundant
+      let g:platform='Windows'
+      let g:slash='\'
+  elseif has('win32unix')
+      let g:platform='Cygwin'
+  else
+      let g:platform='Unknown'
+  endif
+"
+
+
