@@ -45,7 +45,7 @@ else
 fi
 
 
-PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$PURPLE\]\w\[$WHITE\]\n\$ \[$RESET\]"
+PS1="\[${BOLD}${MAGENTA}\]\u \[$PURPLE\]at \[$ORANGE\]\h \[$PURPLE\]in \[$PURPLE\]\w\[$PURPLE\]\n\$ \[$RESET\]"
 
 
 # Load the shell dotfiles, and then some:

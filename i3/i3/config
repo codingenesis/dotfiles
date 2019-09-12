@@ -43,7 +43,7 @@ floating_modifier $mod
 #i3 Shortcut
 
 #Xterm+tmux
-bindsym $mod+Return exec xfce4-terminal 
+bindsym $mod+Return exec gnome-terminal 
 
 #Aumentar e diminuir o volume
 bindsym Mod1+Up exec --no-startup-id amixer -q set 'Master' 5%+
