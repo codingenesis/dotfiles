@@ -15,7 +15,7 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+shopt -s globstar
 
 
 if tput setaf 1 &> /dev/null; then
@@ -50,7 +50,10 @@ PS1="\[${BOLD}${MAGENTA}\]\u \[$PURPLE\]at \[$ORANGE\]\h \[$PURPLE\]in \[$PURPLE
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
+# * ~/.aliases for custom aliases.
+# * ~/.func for custom functions.
+# * ~/.dkfunc for docker functions.
+# * ~/.exports all the export commands at one place
 for file in ~/.{aliases,func,dkfunc,exports}; do
         if [[ -r "$file" ]] && [[ -f "$file" ]]; then
                 # shellcheck source=/dev/null
