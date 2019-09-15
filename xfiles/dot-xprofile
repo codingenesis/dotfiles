@@ -21,7 +21,7 @@ bash /home/codin/.screenlayout/screen_layout.sh &
 pasystray &
 udiskie &
 syndaemon -i 1 -K -R &
-dunst -config ~/.i3/dunstrc &
+dunst -config ~/.config/dunst/dunstrc &
 blueman-applet &
 nm-applet &
 
@@ -29,20 +29,16 @@ nm-applet &
 #slack &
 #skypeforlinux &
 redshift-gtk &
-dropbox &
 xfce4-clipman &
 #unclutter -root -visible &
-#dropbox-cli start
 #gnome-keyring-daemon -r -d
 #hexchat
 #transmission-gtk
 #opera
-#nylas
 #obs
 #ptxconf
 #thunar
 #spotify
 #virt-manager
 #filezilla
-#anydesk &
 #nautilus
