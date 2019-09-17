@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 
 # Remote Machines
 alias gbox='ssh xxx@xxx.xxx.xxx.xxx -p xxx'
@@ -8,24 +10,45 @@ alias med="xbacklight -set 30"
 alias high="xbacklight -set 50"
 
 # Short-cuts
-alias dots="cd ~/dotfiles"
-alias scripts="cd ~/scripts"
+alias dots="cd ~/dotfiles;la"
+alias fa="cd ~/dotfiles/function_and_aliases;la"
+alias i3="cd ~/dotfiles/i3/i3/;la"
+alias poly="cd ~/dotfiles/polybar/;la"
+alias scripts="cd ~/scripts;la"
 alias reload='source ~/.bashrc && echo "sourced ~/.bashrc"'
 alias hosts='sudo vim /etc/hosts'
+alias dl='cd ~/Downloads;la'
+alias pydot='pycharm ~/dotfiles'
+alias pyscript='pycharm ~/scirpts'
+
 
 # Shell
- alias ll='ls -alh'
- alias pg='ps aux | head -n1; ps aux | grep -i'
- alias tf='tail -F -n200'
- #alias top='top -ocpu'
- alias ip="ifconfig|grep broadcast"  # List IPs
- alias i3config="vim ~/.config/i3/config"
- alias i3poly="vim ~/.config/polybar/config"
- alias xrc="vim ~/.xinitrc"
- alias xpro="vim ~/.xprofile"
- alias brc="vim ~/.bashrc"
- alias bpro="vim ~/.bash_profile"
- alias xre="vim ~/.Xresource"
+alias ll='ls -alh'
+alias pg='ps aux | head -n1; ps aux | grep -i'
+alias tf='tail -F -n200'
+#alias top='top -ocpu'
+alias ip="ifconfig|grep broadcast"  # List IPs
+alias i3poly="vim ~/.config/polybar/config"
+alias xrc="vim ~/.xinitrc"
+alias xpro="vim ~/.xprofile"
+alias brc="vim ~/.bashrc"
+alias bpro="vim ~/.bash_profile"
+alias xre="vim ~/.Xresource"
+ alias v='vim'
+ alias g="git"
+alias h="history"
+alias cl="clear"
+alias etc="cd /etc"
+alias e="exit"
+
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias .="cd ."
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias cdd='cd -'  # back to last directory
+
 
  # enable color support of ls and also add handy aliases
  if [ -x /usr/bin/dircolors  ]; then
@@ -39,11 +62,9 @@ alias hosts='sudo vim /etc/hosts'
          alias egrep='egrep --color=auto'
  fi
 
-
 # Add an "alert" alias for long running commands.  Use like so:
 #sosleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0  ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 
 # Check for various OS openers. Quit as soon as we find one that works.
 for opener in browser-exec xdg-open cmd.exe cygstart "start" open; do
@@ -58,24 +79,6 @@ for opener in browser-exec xdg-open cmd.exe cygstart "start" open; do
                 break;
           fi
 done
-
-
-# Easier navigation: .., ..., ...., ....., ~ and -
-alias .="cd ."
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias cdd='cd -'  # back to last directory
-
-# Shortcuts
-alias dl="cd ~/Downloads"   #duplicate
-alias g="git"
-alias h="history"
-alias cl="clear"
-alias etc="cd /etc"
-alias e="exit"
-
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -180,3 +183,23 @@ alias pO="sudo pacman-optimize"
 
 # Recursively delete `.DS_Store` files
 alias cleands="find . -type f -name '*.DS_Store' -ls -delete"
+
+alias rm='trash' # Use `trash` program instead of built-in irrecoverable way to delete nodes.
+alias mv='mv --interactive --verbose' # Move nodes with interactive mode and extra verbosity.
+alias cp='cp --interactive --verbose' # Copy nodes with interactive mode and extra verbosity.
+alias ln='ln --interactive --verbose' # Link nodes with interactive mode and extra verbosity.
+alias mkdir='mkdir --parents' # Make missing parent directories when creating folders.
+alias grep='grep --color=auto --exclude-dir=".git" --exclude-dir="node_modules"' # Grep with colors and ignore common directories.
+alias du='du --max-depth=1 --si' # Display size of files and folders under current directory.
+alias df='df --all --si --print-type' # Display all disk usage statistics with SI units and FS types.
+alias ls='ls --almost-all --classify --color=always --group-directories-first --literal' # List name of nodes.
+alias la='ls -l --almost-all --si' # List nodes with their details.
+alias tmp='command mkdir --parents --verbose $TMPDIR/$(whoami) && cd $TMPDIR/$(whoami)' # Make temporary directory and cd into that.
+
+# Custom Shortcuts
+
+ alias bwlogin='bw login --code "$(auth bitwarden)" "$(< .mutt/accounts/com.gmail/email.txt)" "$(gpg --no-tty --quiet --decrypt ~/.bitwarden/secret.gpg)"'
+ alias bwunlock='export BW_SESSION="$(bw unlock --raw $(gpg --no-tty --quiet --decrypt ~/.bitwarden/secret.gpg))"'
+ alias rsync='rsync --protect-args --compress --verbose --progress --human-readable'
+
+
