@@ -105,4 +105,6 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/share/antigen.zsh
 
 #antigen theme carloscuesta/materialshell zsh/materialshell
-
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
