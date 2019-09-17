@@ -54,7 +54,7 @@ PS1="\[${BOLD}${MAGENTA}\]\u \[$PURPLE\]at \[$ORANGE\]\h \[$PURPLE\]in \[$PURPLE
 # * ~/.func for custom functions.
 # * ~/.dkfunc for docker functions.
 # * ~/.exports all the export commands at one place
-for file in ~/.{aliases,func,dkfunc,exports}; do
+for file in ~/.{system_aliases,misc_aliases,docker_aliases,docker_functions,git_aliases}; do
         if [[ -r "$file" ]] && [[ -f "$file" ]]; then
                 # shellcheck source=/dev/null
                 source "$file"
