@@ -1,3 +1,4 @@
+
 #remote machines
 alias gbox='ssh xxx@xxx.xxx.xxx.xxx -p xxx'
 
@@ -7,10 +8,13 @@ alias med="xbacklight -set 30"
 alias high="xbacklight -set 50"
 
 # Management
-alias dots="cd ~/dotfiles"
-alias scripts="cd ~/scripts"
+alias dots="cd ~/vc/git/my_repos/dotfiles"
+alias scripts="cd ~/vc/git/my_repos/scripts"
 alias reload='source ~/.bashrc && echo "sourced ~/.bashrc"'
+#alias redot='cd ~/.dotfiles && gpp && rake install; cd -'
+
 alias hosts='sudo vim /etc/hosts'
+#alias vrb='vim -c "setf ruby"'
 
 # Shell
  alias ll='ls -alh'
@@ -42,7 +46,7 @@ alias hosts='sudo vim /etc/hosts'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #sosleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0  ] && echo terminal || echo error)" "$(>
+alias alert='notify-send --urgency=low -i "$([ $? = 0  ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 
 # Check for various OS openers. Quit as soon as we find one that works.
@@ -59,27 +63,30 @@ for opener in browser-exec xdg-open cmd.exe cygstart "start" open; do
           fi
 done
 
+
 # Easier navigation: .., ..., ...., ....., ~ and -
-alias .="cd ."
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias cdd='cd -'  # back to last directory
 
-# Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
 # Shortcuts
-alias dl="cd ~/Downloads"
+alias dl="cd ~/Downloads"   #duplicate
 alias g="git"
 alias h="history"
+alias gc=". /usr/local/bin/gitdate && git commit -v "
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
         colorflag="--color"
-else # OS X `ls`        colorflag="-G"
+else # OS X `ls`
+        colorflag="-G"
 fi
+
+# List all files colorized in long format
+# shellcheck disable=SC2139
+alias l="ls -laFh ${colorflag}"
 
 # List all files colorized in long format, including dot files
 # shellcheck disable=SC2139
@@ -89,8 +96,19 @@ alias la="ls -laFh ${colorflag}"
 # shellcheck disable=SC2139
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
+# Always use color output for `ls`
+# shellcheck disable=SC2139
+alias ls="command ls ${colorflag}"
+export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
+
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
+
+# Get week number
+alias week='date +%V'
+
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -140,7 +158,7 @@ alias mv='mv -i'
 # untar
 alias untar='tar xvf'
 
- Pipe my public key to my clipboard.
+# Pipe my public key to my clipboard.
 alias pubkey="more ~/.ssh/id_ed25519.pub | xclip -selection clipboard | echo '=> Public key copied to pasteboard.'"
 
 # Pipe my private key to my clipboard.
@@ -180,18 +198,28 @@ alias rsync?="echo 'rsync -az --progress server:/path/ path (Slashes are signifi
 #alias rsua="bundle exec rake spec:unit:all"
 #alias rsp="rake testbot:spec"
 
- tmux
+
+# Heroku
+#alias h="heroku"
+#alias hmig="heroku run rake db:migrate"
+#alias ho="heroku open"
+#alias hsc="heroku run rails console -r heroku"  # Explicit remote, for apps with a staging as well.
+#alias hlog="heroku logs -t -r heroku"
+
+# tmux
 alias ta="tmux attach -t host"
 # With tmux mouse mode on, just select text in a pane to copy.
 # Then run tcopy to put it in the OS X clipboard (assuming reattach-to-user-namespace).
 #  alias tcopy="tmux show-buffer | pbcopy"
 
+
+
 #Pacman
 alias update="sudo pacman -Syu"
 alias upall="pacaur -Syu --noconfirm"
-alias p="pacman"
+alias p="pacman" 
 alias pQ="pacman -Q"
-alias pqs="pacman -Qs"
+alias pqs="pacman -Qs" 
 alias pqi="pacman -Qi"
 alias pS="sudo pacman -S"
 alias psi="pacman -Si"
@@ -202,5 +230,4 @@ alias prsc="sudo pacman -Rsc"
 alias pA="sudo pacman -A"
 alias pU="sudo pacman -U"
 alias pO="sudo pacman-optimize"
-
 
