@@ -1,0 +1,37 @@
+# Git
+alias g="git"
+alias gs="git status"
+alias gw="git show"
+alias gw^="git show HEAD^"
+alias gw^^="git show HEAD^^"
+alias gw^^^="git show HEAD^^^"
+alias gw^^^^="git show HEAD^^^^"
+alias gd="git diff HEAD"  # What's changed? Both staged and unstaged.
+alias gdo="git diff --cached"  # What's changed? Only staged (added) changes.
+# for gco ("git commit only") and gca ("git commit all"), see functions.sh.
+# for gget (git clone and cd), see functions.sh.
+alias gcaf="git add --all && gcof"
+alias gcof="git commit --no-verify -m"
+alias gcac="gca Cleanup."
+alias gcoc="gco Cleanup."
+alias gcaw="gca Whitespace."
+alias gcow="gco Whitespace."
+alias gpp='git pull --rebase && git push'
+alias gppp="git push -u"  # Can't pull because you forgot to track? Run this.
+alias gps='(git stash --include-untracked | grep -v "No local changes to save") && gpp && git stash pop || echo "Fail!"'
+alias go="git checkout"
+alias gb="git checkout -b"
+alias got="git checkout -"
+alias gom="git checkout master"
+alias grb="git rebase -i origin/master"
+alias gr="git branch -d"
+alias grr="git branch -D"
+alias gcp="git cherry-pick"
+alias gcpp="git cherry-pick -"  # "cherry-pick previous", e.g. the head of the branch we just left
+alias gam="git commit --amend"
+alias gamm="git add --all && git commit --amend -C HEAD"
+alias gammf="gamm --no-verify"
+alias gba="git rebase --abort"
+alias gbc="git add -A && git rebase --continue"
+alias gbm="git fetch origin master && git rebase origin/master"
+

@@ -8,13 +8,13 @@
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Configuracion POWERLVEL9K
 POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon  dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history aws aws_eb_env docker_machine kubecontext )
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon  dir vcs battery )
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history aws aws_eb_env docker_machine kubecontext ip vpn_ip ram ssh virtualenv pyenv )
 POWERLEVEL9K_COLOR_SCHEME='light'
 
 
