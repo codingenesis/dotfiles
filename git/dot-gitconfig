@@ -1,6 +1,6 @@
 [user]
-	name = Harsh Bhatt
-	email = codingenesis@gmail.com
+  name = Harsh Bhatt
+  email = codingenesis@gmail.com
   username = 
 
 [core]
@@ -19,6 +19,7 @@
 
 [diff]
   tool = vimdiff
+  submodule = log
 
 [commit]
   verbose = true
@@ -51,12 +52,40 @@
   local = yellow
   remote = green
 
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+
 [color "diff"]
 
   meta = yellow bold
   frag = magenta bold # line info
   old = red # deletions
   new = green # additions
+
+[diff "pdf"]
+  binary = true
+  cachetextconv = true
+  textconv = diffpdf
+
+[diff "odt"]
+  binary = true
+  cachetextconv = true
+  textconv = odt2txt
+[diff "word"]
+  binary = true
+  cachetextconv = true
+  textconv = catdoc
+[diff "xls"]
+  binary = true
+  cachetextconv = true
+  textconv = xls2csv
+[diff "ppt"]
+  binary = true
+  cachetextconv = true
+  textconv = catppt
 
 [color "status"]
 
@@ -71,12 +100,11 @@
   whitespace = fix
 
 [merge]
-
   # Include summaries of merged commits in newly created merge commit messages
   log = true
+  tool = vimdiff
 
 # URL shorthands
-
 [url "git@github.com:"]
   insteadOf = "gh:"
   pushInsteadOf = "github:"
@@ -92,6 +120,12 @@
 
 [url "git://gist.github.com/"]
   insteadOf = "gist:"
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 
 [alias]
 

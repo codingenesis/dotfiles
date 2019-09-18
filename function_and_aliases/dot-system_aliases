@@ -34,8 +34,6 @@ alias xpro="vim ~/.xprofile"
 alias brc="vim ~/.bashrc"
 alias bpro="vim ~/.bash_profile"
 alias xre="vim ~/.Xresource"
- alias v='vim'
- alias g="git"
 alias h="history"
 alias cl="clear"
 alias etc="cd /etc"
@@ -130,10 +128,10 @@ alias hosts='sudo vim /etc/hosts'
 #alias cwd='pwd | tr -d "\r\n" | xclip -selection clipboard'
 
 # copy file interactive
-alias cp='cp -ir'
+alias cp='cp -i'
 
 # move file interactive
-alias mv='mv -ir'
+alias mv='mv -i'
 
 # untar
 alias untar='tar xvf'
