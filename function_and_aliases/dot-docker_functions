@@ -18,3 +18,23 @@ dstop() { docker stop $(docker ps -a -q);  }
 # Remove all containers
 drm() { docker rm $(docker ps -a -q);  }
 
+# docker-machine, be there and make it happen
+function dms {
+  docker-machine start
+  eval `docker-machine env`
+}
+
+# quickly cleanup cruft from docker machine
+function docker-cleanup() {
+  docker rm `docker ps -a -q`
+  docker rmi `docker images | grep "^<none" | tr -s ' ' | cut -d' ' -f 3`
+  docker volume prune -f
+}
+
+# quickly peek at secrets stored in kubernetes yaml files (base64 encoded)
+function print-kube-secrets() {
+  for file in $@; do
+    echo "${file}:"
+    yaml2json < $file | jq '[.select(.type == "Secret") | .data | to_entries[] | .value = (.value | @base64d)] | from_entries'
+  done
+}

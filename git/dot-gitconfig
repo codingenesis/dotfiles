@@ -759,3 +759,46 @@
       git tag $1; \
   }; f"
 
+    s = status
+	co = checkout
+	history = "log -p"
+	shallow-clone = "clone --depth=1"
+    tree = "log --graph --oneline --all --decorate=full"
+	pick = "cherry-pick"
+  contributors = "shortlog -n -s --no-merges"
+  amend = "commit -a --amend"
+  staged = "diff --staged"
+
+  ls      = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  last    = log -1 HEAD
+  today   = log --since=midnight --color --graph \
+            --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)[%an]%Creset' \
+            --abbrev-commit
+  yesterday = log --since yesterday --until=midnight --color --graph \
+            --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)[%an]%Creset' \
+            --abbrev-commit
+  history = log --graph --pretty=format:'%C(yellow)%h%Creset \
+            -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' \
+            --abbrev-commit --date=short --date-order -n30
+
+  remotes = remote -v
+  df      = diff
+
+  branches = branch -a
+  unstage = reset HEAD --
+  discard = checkout --
+  co      = checkout
+  com     = checkout master
+
+  amend   = commit --amend
+  ca      = commit --amend
+  cm      = commit -m
+
+  s       = status --short --branch
+  st      = status
+  sta     = status --short --branch --untracked-files=normal
+
+  sync    = !git pull && git push
+  ta      = tag -a
+  tags    = tag -l
+
