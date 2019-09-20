@@ -323,6 +323,25 @@ assign [class="Slack"] $WS18
 assign [class="Hexchat"] $WS19
 #assign [class="Nylas Mail"] $WS20
 
+
+# set specific windows to floating mode
+for_window [window_role="app"]                      floating enable
+for_window [window_role="pop-up"]                   floating enable
+for_window [window_role="task_dialog"]              floating enable
+for_window [title="Preferences$"]                   floating enable
+for_window [class="File-roller"]                    floating enable
+for_window [class="Galculator"]                     floating enable
+for_window [class="Gcolor2"]                        floating enable
+for_window [class="Gkamus"]                         floating enable
+for_window [class="Go-for-it"]                      floating enable
+for_window [class="KBBI-Qt"]                        floating enable
+for_window [class="Lightdm-gtk-greeter-settings"]   floating enable
+for_window [class="Lxappearance"]                   floating enable
+for_window [class="Menu"]                           floating enable
+for_window [class="Nm-connection-editor"]           floating enable
+for_window [class="Software-properties-gtk"]        floating enable
+
+
 ##======================================================================================
 ##======================================================================================
 
