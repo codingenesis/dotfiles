@@ -42,3 +42,4 @@ xfce4-clipman &
 #virt-manager
 #filezilla
 #nautilus
+feh --bg-fill ~/Pictures &

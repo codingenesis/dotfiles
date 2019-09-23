@@ -48,8 +48,3 @@ wintypes:
 # Other #
 #########
 backend = "xrender"
-
- 
-
-
-

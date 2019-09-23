@@ -1,4 +1,4 @@
-
+## to be moved to function and aliases
 #remote machines
 alias gbox='ssh xxx@xxx.xxx.xxx.xxx -p xxx'
 

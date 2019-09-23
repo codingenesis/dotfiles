@@ -1,0 +1,40 @@
+#All the docker functions
+
+# Remove all images
+dri() { docker rmi $(docker images -q);  }
+
+# Dockerfile build, e.g., $dbu tcnksm/test
+dbu() { docker build -t=$1 .;  }
+
+# Show all alias related docker
+dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
+
+# Bash into running container
+dbash() { docker exec -it $(docker ps -aqf "name=$1") bash;  }
+
+# Stop all containers
+dstop() { docker stop $(docker ps -a -q);  }
+
+# Remove all containers
+drm() { docker rm $(docker ps -a -q);  }
+
+# docker-machine, be there and make it happen
+function dms {
+  docker-machine start
+  eval `docker-machine env`
+}
+
+# quickly cleanup cruft from docker machine
+function docker-cleanup() {
+  docker rm `docker ps -a -q`
+  docker rmi `docker images | grep "^<none" | tr -s ' ' | cut -d' ' -f 3`
+  docker volume prune -f
+}
+
+# quickly peek at secrets stored in kubernetes yaml files (base64 encoded)
+function print-kube-secrets() {
+  for file in $@; do
+    echo "${file}:"
+    yaml2json < $file | jq '[.select(.type == "Secret") | .data | to_entries[] | .value = (.value | @base64d)] | from_entries'
+  done
+}
