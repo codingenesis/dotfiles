@@ -72,7 +72,7 @@ exec --no-startup-id compton -b --conf ~/.config/i3/compton
 #exec --no-startup-id  feh --bg-scale Wallpaper/landscapes-dark-houses-bridges-fantasy-art-artwork-waterfalls-high-resolution.jpg
 #exec --no-startup-id conky -c ~/conky/conkyrc0
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id xfce4-terminal --name my-tmux-term -e tmux new -As0
+#exec --no-startup-id xfce4-terminal --name my-tmux-term -e tmux new -As0
 ##======================================================================================
 ##======================================================================================
 
@@ -198,18 +198,6 @@ bindsym $mod+8 workspace $WS8
 bindsym $mod+9 workspace $WS9
 bindsym $mod+0 workspace $WS0
 
-# workspaces from 11-20
-#bindsym $mod1+1 workspace $WS11
-#bindsym $mod1+2 workspace $WS12
-#bindsym $mod1+3 workspace $WS13
-#bindsym $mod1+4 workspace $WS14
-#bindsym $mod1+5 workspace $WS15
-#bindsym $mod1+6 workspace $WS16
-#bindsym $mod1+7 workspace $WS17
-#bindsym $mod1+8 workspace $WS18
-#bindsym $mod1+9 workspace $WS19
-#bindsym $mod1+0 workspace $WS20
-
 ##======================================================================================
 ##======================================================================================
 
@@ -225,75 +213,31 @@ bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
 bindsym $mod+Shift+0 move container to workspace $WS0
 
-# move focused container to workspace
-#bindsym $mod1+Shift+1 move container to workspace $WS11
-#bindsym $mod1+Shift+2 move container to workspace $WS12
-#bindsym $mod1+Shift+3 move container to workspace $WS13
-#bindsym $mod1+Shift+4 move container to workspace $WS14
-#bindsym $mod1+Shift+5 move container to workspace $WS15
-#bindsym $mod1+Shift+6 move container to workspace $WS16
-#bindsym $mod1+Shift+7 move container to workspace $WS17
-#bindsym $mod1+Shift+8 move container to workspace $WS18
-#bindsym $mod1+Shift+9 move container to workspace $WS19
-#bindsym $mod1+Shift+0 move container to workspace $WS20
-
-
-
-
-
 ##======================================================================================
 ##======================================================================================
 
 # Assign workspace names  and order
-set $WS1 1 
-set $WS2 2 
+set $WS1 1 
+set $WS2 2 "
 set $WS3 3 
-set $WS4 4  
+set $WS4 4  
 set $WS5 5  
 set $WS6 6  
-#set $WS6 6 
-set $WS7 7  
-set $WS8 8  
-set $WS9 9 
-set $WS0 0 
+set $WS7 7 " 
+set $WS8 8   
+set $WS9 9 
+set $WS0 0  
 
-set $WS16 6.  
-set $WS17 7.  
-set $WS18 8.  
-set $WS19 9. 
-set $WS20 0. 
-
-set $WS11 1. 
-set $WS12 2.
-set $WS13 3. 
-set $WS14 4. 
-set $WS15 5. 
-
-workspace "0 " output HDMI1
-workspace "1  " output HDMI1
-workspace "2 " output HDMI1
+workspace "0  " output HDMI1
+workspace "1  " output HDMI1
+workspace "2 " output HDMI1
 workspace "3 " output HDMI1
-workspace "4  " output HDMI1
+workspace "4  " output HDMI1
 workspace "5  " output HDMI1
-#workspace "6 " output HDMI2
-#workspace "6  " output HDMI2
-workspace "7  " output HDMI1
-workspace "8  " output HDMI1
-workspace "9  " output HDMI1
-
-#workspace "1. " output VGA1
-#workspace "2. " output VGA1
-#workspace "3. " output VGA1
-#workspace "4. " output VGA1
-#workspace "5. " output VGA1
-
-#workspace "6.  " output HDMI1
-workspace "6  " output HDMI1
-#workspace "7.  " output HDMI1
-#workspace "8.  " output HDMI1
-#workspace "9. " output HDMI1
-#workspace "0.  " output HDMI1
-
+workspace "6  " output HDMI1
+workspace "7 " output HDMI1
+workspace "8  " output HDMI1
+workspace "9  " output HDMI1
 
 ##======================================================================================
 ##======================================================================================
@@ -304,26 +248,26 @@ workspace "6  " output HDMI1
 
 assign [class="Thunar"] $WS3
 assign [class="Nautilus"] $WS3
-assign [class="Firefox"] $WS4
+assign [class="Firefox"] $WS5
 assign [class="Google-chrome"] $WS5
 assign [class="Chromium"] $WS5
-assign [class="Vivaldi-stable"] $WS6
-assign [class="Spotify"] $WS6
+assign [class="Vivaldi-stable"] $WS5
+assign [class="Spotify"] $WS7
 assign [class="Vlc"] $WS7
 #assign [class="realvnc-vncviewer"] $WS8
-assign [class="Virt-manager"] $WS9
+#assign [class="Virt-manager"] $WS9
 
-assign [class="Filezilla"] $WS11
+#assign [class="Filezilla"] $WS11
 
-assign [class="Transmission-gtk"] $WS13
-assign [class="Anydesk"] $WS14
+#assign [class="Transmission-gtk"] $WS13
+#assign [class="Anydesk"] $WS14
 
-assign [class="Skype"] $WS15
-assign [class="obs"] $WS16
-assign [class="Opera"] $WS17
-assign [class="Slack"] $WS18
-assign [class="Hexchat"] $WS19
-assign [class="Nylas Mail"] $WS20
+assign [class="Skype"] $WS8
+#assign [class="obs"] $WS16
+assign [class="Opera"] $WS5
+assign [class="Slack"] $WS8
+assign [class="Hexchat"] $WS8
+#assign [class="Nylas Mail"] $WS20
 
 ##======================================================================================
 ##======================================================================================
