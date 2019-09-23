@@ -106,3 +106,5 @@ unset file
 eval $(keychain --eval --quiet id_ed25519 id_rsa )
 
 eval "$(thefuck --alias)"
+
+export BAT_THEME="TwoDark"
