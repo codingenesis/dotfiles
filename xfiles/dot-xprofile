@@ -42,4 +42,6 @@ xfce4-clipman &
 #virt-manager
 #filezilla
 #nautilus
+#ptxconf
+xbacklight -set 65
 feh --bg-fill ~/Pictures &

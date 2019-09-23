@@ -1303,3 +1303,16 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 unset -f alias_completion
 
+# system commands
+alias ls="ls -all --color=auto"
+alias ce="cd /etc/"
+alias pg="ping www.google.com"
+alias update="aurman -Syu --noconfirm"
+alias low="xbacklight -set 10"
+alias med="xbacklight -set 30"
+alias high="xbacklight -set 50"
+
+# ssh
+alias euler='ssh codin@192.168.1.107'
+alias ramanujan='ssh codin@192.168.1.108'
+
