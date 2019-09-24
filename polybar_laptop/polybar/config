@@ -38,10 +38,49 @@ modules-left = i3 xwindow
 #modules-center = xwindow
 modules-right = cpu memory volume date powermenu
 
+#[bar/center]
+#inherit = bar/default
+#monitor = DVI-I-1
+#modules-right = powermenu
+#tray-position = right
+#tray-detached = false
+#tray-padding = 0
+
+[bar/left_top]
+inherit = bar/default
+monitor = VGA1
+modules-left = i3_left 
+modules-center = xwindow
+modules-right = 
+bottom = false
+border-bottom-size = 3
+border-bottom-color = #002f343f
+border-top-size = 3
+border-top-color = #002f343f
+border-right-size = 3
+border-right-color = #002f343f
+border-left-size = 20
+border-left-color = #002f343f
+
+;[bar/left_bot]
+;inherit = bar/default
+;monitor = VGA1
+;modules-left = i3_left
+;modules-center = xwindow
+;modules-right = weather gmail
+;bottom = true
+;border-bottom-size = 5
+;border-bottom-color = #002f343f
+;border-top-size = 5
+;border-top-color = #002f343f
+;border-right-size = 5
+;border-right-color = #002f343f
+;border-left-size = 5
+;border-left-color = #002f343f
 
 [bar/center_top]
 inherit = bar/default
-monitor = HDMI1
+monitor = eDP1
 modules-left = i3_center system-uptime-pretty
 modules-center = cpu spotify memory
 modules-right = pkg powermenu
@@ -71,7 +110,7 @@ tray-scale = 1.0
 
 [bar/center_bot]
 inherit = bar/default
-monitor = HDMI1
+monitor = eDP1
 modules-left = weather info-trash filesystem
 ;modules-center = myip
 modules-center = isrunning-openvpn wired
@@ -79,6 +118,41 @@ modules-right =  date compton redshift
 radius = 0.5
 line-size = 1
 line-color = ${colors.backgroundRgba}
+bottom = true
+border-bottom-size = 5
+border-bottom-color = #002f343f
+border-top-size = 5
+border-top-color = #002f343f
+border-right-size = 5
+border-right-color = #002f343f
+border-left-size = 5
+border-left-color = #002f343f
+
+[bar/right_top]
+inherit = bar/default
+monitor = HDMI1
+modules-left = i3_right 
+;modules-center = bitcoin ethereum fuel omisego stellar
+modules-center = 
+modules-right = 
+padding-left = 3
+bottom = false
+border-bottom-size = 5
+border-bottom-color = #002f343f
+border-top-size = 5
+border-top-color = #002f343f
+border-right-size = 5
+border-right-color = #002f343f
+border-left-size = 5
+border-left-color = #002f343f
+
+[bar/right_bot]
+inherit = bar/default
+monitor = HDMI1
+modules-left = i3_right
+modules-center =
+modules-right = info-trash kernel system-uptime-pretty
+padding-left = 3
 bottom = true
 border-bottom-size = 5
 border-bottom-color = #002f343f

@@ -152,7 +152,6 @@ function! FindConfig(prefix, what, where)
   endfunction
 
 
-############
 
 """""""""""""""""""""""""""""""""""" vim-unimpaired """""""""""""""""""""""""""
 Plug 'tpope/vim-unimpaired'
@@ -234,7 +233,7 @@ Plug 'tpope/vim-repeat'
 Plug 'mattn/emmet-vim'
 
 """""""""""""""commentary""""""""
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 
 """"""""""""""delimitmate"""""""""""""
 Plug 'raimondi/delimitmate'

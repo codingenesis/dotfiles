@@ -80,10 +80,10 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting aws docker gpg-agent gi
 #plugins=(git archlinux autojump aws colored-man-pages colorize common-aliases copyfile cp   gitignore globalias virtualenv vi-mode vagrant tmux  systemadmin ssh-agent rsync perms  nmap lol kubectl gnu-utils gpg-agent )
 
 ZSH_CUSTOM=$HOME/.zsh
-ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_AUTOSTART_ONCE=true
-ZSH_TMUX_AUTOCONNECT=true
-ZSH_TMUX_AUTOQUIT=true
+ZSH_TMUX_AUTOCONNECT=false
+ZSH_TMUX_AUTOQUIT=false
 ZSH_TMUX_FIXTERM=true
 
 source $ZSH/oh-my-zsh.sh
