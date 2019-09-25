@@ -1,3 +1,4 @@
 .idea
 git/.git_customized_configs/user.gitconfig
 polybar_laptop/polybar/config
+xfiles/dot-Xresources
