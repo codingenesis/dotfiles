@@ -152,7 +152,6 @@ function! FindConfig(prefix, what, where)
   endfunction
 
 
-############
 
 """""""""""""""""""""""""""""""""""" vim-unimpaired """""""""""""""""""""""""""
 Plug 'tpope/vim-unimpaired'
