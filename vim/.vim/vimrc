@@ -234,7 +234,7 @@ Plug 'tpope/vim-repeat'
 Plug 'mattn/emmet-vim'
 
 """""""""""""""commentary""""""""
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 
 """"""""""""""delimitmate"""""""""""""
 Plug 'raimondi/delimitmate'
