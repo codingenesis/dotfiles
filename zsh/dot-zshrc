@@ -75,7 +75,7 @@ export TERM="xterm-256color"
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git archlinux autojump  aws colored-man-pages colorize common-aliases copyfile cp dirhistory docker-compose docker gitignore globalias virtualenv vi-mode  vagrant tmux terraform systemd systemadmin ssh-agent rsync perms nvm npm node nmap lol kubectl git-extras git-flow-avh git-flow git-hubflow git-prompt git-remote-branch gitfast  github gnu-utils gpg-agent zsh-navigation-tools history history-substring-search)
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting aws docker gpg-agent git-extras history kubectl lol ssh-agent sudo systemd tmux web-search colored-man-pages colorize ssh-agent )
+plugins=(git autojump zsh-autosuggestions zsh-syntax-highlighting aws docker gpg-agent git-extras history kubectl lol ssh-agent sudo systemd tmux web-search colored-man-pages colorize ssh-agent )
 
 #plugins=(git archlinux autojump aws colored-man-pages colorize common-aliases copyfile cp   gitignore globalias virtualenv vi-mode vagrant tmux  systemadmin ssh-agent rsync perms  nmap lol kubectl gnu-utils gpg-agent )
 
@@ -114,9 +114,7 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
 
 setopt HIST_IGNORE_DUPS
 zstyle ':completion:*' rehash true

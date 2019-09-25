@@ -86,13 +86,13 @@ PS1="\[${BOLD}${MAGENTA}\]\u \[$PURPLE\]at \[$ORANGE\]\h \[$PURPLE\]in \[$PURPLE
 # * ~/.func for custom functions.
 # * ~/.dkfunc for docker functions.
 # * ~/.exports all the export commands at one place
-for file in ~/.{path,system_aliases,misc_aliases,misc_functions,docker_aliases,docker_functions,git_aliases}; do
-        if [[ -r "$file" ]] && [[ -f "$file" ]]; then
-                # shellcheck source=/dev/null
-                source "$file"
-        fi
-done
-unset file
+#for file in ~/.{path,system_aliases,misc_aliases,misc_functions,docker_aliases,docker_functions,git_aliases}; do
+#        if [[ -r "$file" ]] && [[ -f "$file" ]]; then
+#                # shellcheck source=/dev/null
+#                source "$file"
+#        fi
+#done
+#unset file
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config
 # ignoring wildcards

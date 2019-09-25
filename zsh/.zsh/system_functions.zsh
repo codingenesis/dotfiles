@@ -48,11 +48,11 @@ it
 }
 
 # Use Git’s colored diff when available
-if hash git &>/dev/null ; then
-	diff() {
-		git diff --no-index --color-words "$@"
-	}
-fi
+#if hash git &>/dev/null ; then
+#	diff() {
+#		git diff --no-index --color-words "$@"
+#	}
+#fi
 
 # Create a git.io short URL
 gitio() {
@@ -236,17 +236,17 @@ from working directory
 }
 
 # Get colors in manual pages
-man() {
-	env \
-		LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
-		LESS_TERMCAP_md="$(printf '\e[1;31m')" \
-		LESS_TERMCAP_me="$(printf '\e[0m')" \
-		LESS_TERMCAP_se="$(printf '\e[0m')" \
-		LESS_TERMCAP_so="$(printf '\e[1;44;33m')" \
-		LESS_TERMCAP_ue="$(printf '\e[0m')" \
-		LESS_TERMCAP_us="$(printf '\e[1;32m')" \
-		man "$@"
-}
+#man() {
+#	env \
+#		LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
+#		LESS_TERMCAP_md="$(printf '\e[1;31m')" \
+#		LESS_TERMCAP_me="$(printf '\e[0m')" \
+#		LESS_TERMCAP_se="$(printf '\e[0m')" \
+#		LESS_TERMCAP_so="$(printf '\e[1;44;33m')" \
+#		LESS_TERMCAP_ue="$(printf '\e[0m')" \
+#		LESS_TERMCAP_us="$(printf '\e[1;32m')" \
+#		man "$@"
+#}
 
 # Use feh to nicely view images
 openimage() {
@@ -1332,18 +1332,6 @@ optiImages()
 
 # -------------------------------------------------------------------
 # Get colors in manual pages
-man()
-{
-  env \
-    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-    LESS_TERMCAP_md=$(printf "\e[1;31m") \
-    LESS_TERMCAP_me=$(printf "\e[0m") \
-    LESS_TERMCAP_se=$(printf "\e[0m") \
-    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-    LESS_TERMCAP_ue=$(printf "\e[0m") \
-    LESS_TERMCAP_us=$(printf "\e[1;32m") \
-    man "$@"
-}
 
 # -------------------------------------------------------------------
 # lman: Open the manual page for the last command you executed.
@@ -1441,31 +1429,31 @@ mount_info()
 # sniff: view HTTP traffic
 #
 # usage: sniff [eth0]
-sniff()
-{
-  if [ $1 ]; then
-    local device=$1
-  else
-    local device='eth0'
-  fi
+#sniff()
+#{
+#  if [ $1 ]; then
+#    local device=$1
+#  else
+#    local device='eth0'
+#  fi
 
-  sudo ngrep -d ${device} -t '^(GET|POST) ' 'tcp and port 80'
-}
+#  sudo ngrep -d ${device} -t '^(GET|POST) ' 'tcp and port 80'
+#}
 
 # -------------------------------------------------------------------
 # httpdump: view HTTP traffic
 #
 # usage: httpdump [eth1]
-httpdump()
-{
-  if [ $1 ]; then
-    local device=$1
-  else
-    local device='eth0'
-  fi
+#httpdump()
+#{
+#  if [ $1 ]; then
+#    local device=$1
+#  else
+#    local device='eth0'
+#  fi
 
-  sudo tcpdump -i ${device} -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\"
-}
+#  sudo tcpdump -i ${device} -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\"
+#}
 
 # -------------------------------------------------------------------
 # iptablesBlockIP: block a IP via "iptables"
@@ -1818,10 +1806,10 @@ fs()
 
 # -------------------------------------------------------------------
 # ff: displays all files in the current directory (recursively)
-ff()
-{
-  find . -type f -iname '*'$*'*' -ls
-}
+#ff()
+#{
+#  find . -type f -iname '*'$*'*' -ls
+#}
 
 # -------------------------------------------------------------------
 # fstr: find text in files
