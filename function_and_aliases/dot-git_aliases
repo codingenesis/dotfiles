@@ -1,53 +1,59 @@
 #!/usr/bin/env bash
 
-# Git
+############### (git status) ##################
 alias g="git"
-alias gs="git status"
-alias gw="git show"
-alias gw^="git show HEAD^"
-alias gw^^="git show HEAD^^"
-alias gw^^^="git show HEAD^^^"
-alias gw^^^^="git show HEAD^^^^"
-alias gd="git diff HEAD"  # What's changed? Both staged and unstaged.
-alias gdo="git diff --cached"  # What's changed? Only staged (added) changes.
-# for gco ("git commit only") and gca ("git commit all"), see functions.sh.
-# for gget (git clone and cd), see functions.sh.
-alias gcaf="git add --all && gcof"
-alias gcof="git commit --no-verify -m"
-alias gcac="gca Cleanup."
-alias gcoc="gco Cleanup."
-alias gcaw="gca Whitespace."
-alias gcow="gco Whitespace."
-alias gpp='git pull --rebase && git push'
-alias gppp="git push -u"  # Can't pull because you forgot to track? Run this.
-alias gps='(git stash --include-untracked | grep -v "No local changes to save") && gpp && git stash pop || echo "Fail!"'
-alias go="git checkout"
-alias gb="git checkout -b"
-alias got="git checkout -"
-alias gom="git checkout master"
-alias grb="git rebase -i origin/master"
-alias gr="git branch -d"
-alias grr="git branch -D"
-alias gcp="git cherry-pick"
-alias gcpp="git cherry-pick -"  # "cherry-pick previous", e.g. the head of the branch we just left
-alias gam="git commit --amend"
-alias gamm="git add --all && git commit --amend -C HEAD"
-alias gammf="gamm --no-verify"
-alias gba="git rebase --abort"
-alias gbc="git add -A && git rebase --continue"
-alias gbm="git fetch origin master && git rebase origin/master"
+#alias gs="git status"
+alias gst='git status -sb'
 
-
-# when i say git i mean hub
-#eval "$(hub alias -s)"
-
-alias g="git"
-
-# ---------- ADD ----------
-alias ga="git add"
+################ (git add) ###################
+alias gap='git add -p' # step through each change, or hunk
+alias gA='git add --all :/' #https://stackoverflow.com/questions/22047909/what-does-git-add-a-do/22049939#22049939
+alias ga='git add'
 alias ga.="git add ."
+alias gaap='clear; git add --all --patch'
+alias gamd="git add --all && git commit --amend -C HEAD"
 
-# ---------- PUSH ----------
+################ git pull ####################
+alias gpl='git pull'
+alias gpla='git pull --all'
+alias gplo='git pull origin'
+alias gplr='git pull --rebase'
+alias gplro='git pull --rebase origin'
+alias gpu='git pull origin HEAD --prune'
+alias gauh='git pull --allow-unrelated-histories'
+
+################ git fetch ####################
+alias gf='git fetch'
+alias gfa='git fetch --all'
+alias gfo='git fetch origin'
+alias gfmom='git fetch origin && git merge origin/master'
+alias gfrb='git fetch origin && git rebase origin/master'
+
+################# git merge ################
+alias gm='git merge'
+alias gma='git merge --abort'
+alias gmc='git merge --continue'
+alias gms='git merge --squash'
+
+################ git commit ################
+alias gc='git commit --cleanup=scissors -m'
+# don't validate commit
+alias gca='git commit --cleanup=scissors --amend'
+alias gcan='git commit --cleanup=scissors --amend -n'
+alias wip="git commit -m'WIP' . && git push origin HEAD"
+alias gm='git commit -m'
+alias gam='git commit -am'
+alias gcanv='git commit --amend --no-verify -m'
+alias gcia='git commit --amend'
+alias gcnv='git commit --no-verify -m'
+alias gca='git commit --amend'
+alias gcane='git commit --amend --no-edit'
+alias gcanes='gcane --gpg-sign'
+alias gcanoe='gcne'
+alias gcanoes='gcne --gpg-sign'
+alias gcof="git commit --no-verify -m"
+
+############## git push ##################
 alias gp='git push'
 alias gpo="git push origin"
 alias gpfo="git push -f origin"
@@ -57,57 +63,42 @@ alias gpao="git push --all origin"
 alias gpfao="git push -f --all origin"
 alias gpd="git push --delete"
 alias gpod="git push origin --delete"
+alias gp="git push origin HEAD"
+alias gpt="git push origin HEAD && git push --tags"
+# Undo a `git push`
+alias undopush="git push -f origin HEAD^:master"
+alias gpo='git push origin'
+alias gpof='git push origin --force-with-lease'
+alias gpot='git push origin --tags'
+alias gppp="git push -u"  # Can't pull because you forgot to track? Run this.
 
-# ---------- PULL ----------
-alias gpl='git pull'
-alias gpla='git pull --all'
-alias gplo='git pull origin'
-alias gplr='git pull --rebase'
-alias gplro='git pull --rebase origin'
-
-
-# ---------- FETCH ----------
-alias gf='git fetch'
-alias gfa='git fetch --all'
-alias gfo='git fetch origin'
-
-# ---------- BRANCH ----------
-alias gb="git branch"
-alias gba="git branch -a"
-alias gbd="git branch -d"
-alias gbD="git branch -D"
-alias gub="git remote update origin --prune && echo '\nNew Branch List:\n' &&git branch --all"
-
-# ---------- STATUS ----------
-alias gs='git status -sb'
-
-# ---------- COMMIT ----------
-alias gc='git commit --cleanup=scissors -m'
-# don't validate commit
-
-alias gca='git commit --cleanup=scissors --amend'
-alias gcan='git commit --cleanup=scissors --amend -n'
-
-# ---------- DIFF ----------
-alias gd='git diff'
-
-# ---------- CHECKOUT ----------
+################## git chekcout ###############
 alias gco='git checkout'
 alias gcob='git checkout -b'
 
-# ---------- REBASE ----------
-alias grb='git rebase'
-alias grbi='git rebase --interactive'
-alias grba='git rebase --abort'
-alias grbc='git rebase --continue'
+################# git show ####################
+alias gs1="git show"
+alias gs2="git show HEAD^"
+alias gs3="git show HEAD^^"
+alias gs4="git show HEAD^^^"
+alias gs5="git show HEAD^^^^"
+alias gs='git show -p'
 
-# ---------- MERGE ----------
-alias gm='git merge'
-alias gma='git merge --abort'
-alias gmc='git merge --continue'
-alias gms='git merge --squash'
+################ git diff ###################
+alias gd='git diff'
+alias gvc='vim `git diff --name-only --diff-filter=U`'
+alias gvm='vim `git diff --name-only --diff-filter=M`'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gdd='git difftool'
+alias gdt='git difftool'
+alias gdw='git diff -w'
+alias gws='git diff --shortstat "@{0 day ago}"' # how many lines of code you have written today
+alias gwts='git ls-files | xargs wc -l' # count number of lines of code in a git project
+alias gd="git diff HEAD"  # What's changed? Both staged and unstaged.
+alias gdo="git diff --cached"  # What's changed? Only staged (added) changes.
 
-# ---------- LOG ----------
+################# git log #################
 alias glog='git log --graph -n 30'
 # alias gl='git log --pretty=oneline -n 20 --graph --abbrev-commit'
 alias gl='git log --graph -n 30'
@@ -115,131 +106,146 @@ alias gl='git log --graph -n 30'
 alias gla='git log --graph'
 # show me details
 alias gld="git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative"
+alias gl='git log'
+alias glp5='git log -5 --pretty --oneline' # view your last 5 latest commits each on their own line
+alias glt='git log --all --graph --decorate --oneline --simplify-by-decoration' # pretty branch status
+alias glsw='git log -S' # search the commit history for the word puppy and display matching commits (glsw [word])
+alias gl1='git log -n 1'
+alias gl='git quicklog -n 20'
+alias gll='git quicklog-long'
+alias gls='git log --show-signature'
 
-# ---------- REMOTE ----------
+################### Git Branches ##############
+alias gd="git branch -d"  # to delete a branch
+alias gD="git branch -D" # to force delete a branch
+alias gb="git branch"
+alias gba="git branch -a"
+alias gub="git remote update origin --prune && echo '\nNew Branch List:\n' &&git branch --all"
+alias gb='git branch'
+alias gbt=git_list_branches
+alias ggmp='git checkout -' # jump back to to your last branch
+alias gb='git branch'
+alias gbl='git branch -v -a'
+
+
+##################### git rebase ################
+
+alias grb='git rebase'
+alias grbi='git rebase --interactive'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+alias grb='git rebase'
+alias grbc='git rebase --continue'
+alias grbi='git rebase -i'
+alias grbil='git rebase -i HEAD~10'
+alias grbs='git rebase --skip'
+alias gba="git rebase --abort"
+alias gbm="git fetch origin master && git rebase origin/master"
+alias grb="git rebase -i origin/master"
+alias gpp='git pull --rebase && git push'
+alias gbc="git add -A && git rebase --continue"
+
+################### remote ####################
+
 alias grv='git remote -v'
 # git update remote
 alias gurl='git remote set-url origin'
+alias gr_help git remote add origin https://github.com/user/repo.git
 
-# ---------- RESET ----------
+################## git reset  ################
+
 alias gr='git reset'
 alias gr.='git reset .'
 # throw away changes since commit
 alias grh='git reset --hard'
 # throw away changes since commit on <path>
-alias grf='git checkout HEAD --'
 
-# ---------- CHERRY PICK ----------
+################### git  checkout #####################
+alias grf='git checkout HEAD --'
+alias gc='git checkout'
+alias go="git checkout"
+alias gb="git checkout -b"
+alias got="git checkout -"
+alias gom="git checkout master"
+
+
+################## cherry pick #################
+
 alias gcp='git cherry-pick'
 alias gcpc='git cherry-pick -- continue'
 alias gcpa='git cherry-pick --abort'
+alias gchp='git cherry-pick' # cherry pick the committed code in your own branch (gchp [hash])
+alias gcp="git cherry-pick"
+alias gcpp="git cherry-pick -"  # "cherry-pick previous", e.g. the head of the branch we just left
 
-# ---------- BROWSE ----------
+
+################# git browse #############
+
 alias gbr='git browse'
 
-# Git aliases
-# More Git tips http://firstaidgit.io/
-alias gss="git status -s"
-alias gp="git push origin HEAD"
-alias gpt="git push origin HEAD && git push --tags"
-alias wip="git commit -m'WIP' . && git push origin HEAD"
-alias grok="ngrok start rem.jsbin-dev.com static.rem.jsbin-dev.com learn.rem.jsbin-dev.com"
-alias gl='git log'
-alias glp5='git log -5 --pretty --oneline' # view your last 5 latest commits each on their own line
-alias glt='git log --all --graph --decorate --oneline --simplify-by-decoration' # pretty branch status
-alias glsw='git log -S' # search the commit history for the word puppy and display matching commits (glsw [word])
-alias gs='git status'
-alias gd='git diff'
-alias gm='git commit -m'
-alias gam='git commit -am'
-alias gb='git branch'
-alias gc='git checkout'
+############### git remote ##################
+
 alias gra='git remote add'
 alias grr='git remote rm'
-alias gbt=git_list_branches
-alias gpu='git pull origin HEAD --prune'
-alias gcl='git clone'
-alias gta='git tag -a -m'
-alias gf='git reflog' # allows you to see every step you have made with git allowing you to retract and reinstate your steps
-alias gap='git add -p' # step through each change, or hunk
-alias gsl='git shortlog -sn' # quickly get a list of contributors and see how many commits each person has
-alias gws='git diff --shortstat "@{0 day ago}"' # how many lines of code you have written today
-alias gwts='git ls-files | xargs wc -l' # count number of lines of code in a git project
-alias ggmp='git checkout -' # jump back to to your last branch
-alias gst='git stash' # stash git changes and put them into your list
-alias gdtp='git stash pop' # bring back your changes, but it removes them from your stash
-alias gchp='git cherry-pick' # cherry pick the committed code in your own branch (gchp [hash])
-alias gcln='git clean -xfd' # remove untracked files
+alias gar='git remote add <remote_name> <remote_repo_url>'
+alias gpr='git push -u <remote_name> <local_branch_name>'
 
-# Undo a `git push`
-alias undopush="git push -f origin HEAD^:master"
+############### git stash #############
 
-# `cd` to Git repo root
-alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
-
-# Gist
-alias gist-paste="gist --private --copy --paste --filename"  # gist-paste filename.ext -- create private Gist from the clipboard contents
-alias gist-file="gist --private --copy"  # gist-file filename.ext -- create private Gist from a file
-
-alias g='git'
-alias gA='git add --all :/'
-alias ga='git add'
-alias gaa='gA ; st'
-alias gac='git add `git status -uall | egrep "#\tboth modified:" | cut -d: -f2`'
-alias gap='clear; git add --all --patch'
-alias gb='git branch'
-alias gbd='git branch -d'
-alias gbl='git branch -v -a'
-alias gca='git commit --amend'
-alias gcane='git commit --amend --no-edit'
-alias gcanes='gcane --gpg-sign'
-alias gcanoe='gcne'
-alias gcanoes='gcne --gpg-sign'
-alias gcanv='git commit --amend --no-verify -m'
-alias gcia='git commit --amend'
-alias gcnv='git commit --no-verify -m'
-alias gd='git diff'
-alias gdc='git diff --cached'
-alias gdd='git difftool'
-alias gdt='git difftool'
-alias gdw='git diff -w'
-alias gf='git fetch'
-alias gfa='git fetch --all'
-alias gfmom='git fetch origin && git merge origin/master'
-alias gfrb='git fetch origin && git rebase origin/master'
-alias gfrbi='gfrb --interactive'
-alias gg='git grep'
 alias gh='git stash'
 alias ghl='git stash list'
 alias ghp='git stash pop'
 alias ghs='git stash save'
 alias ghsp='git stash save --patch'
 alias ghw='git stash show -p'
-alias gist='gist -p -c'
-alias gk='gitk &>/dev/null'
-alias gl1='git log -n 1'
-alias gl='git quicklog -n 20'
-alias gll='git quicklog-long'
-alias gls='git log --show-signature'
-alias gmom='git merge origin/master'
-alias gmt='git mergetool'
-alias gp='git push'
-alias gpgdecrypt='gpg --decrypt-files'
-alias gpgencrypt='gpg --default-recipient-self --armor --encrypt-files'
-alias gph='git push heroku'
-alias gpo='git push origin'
-alias gpof='git push origin --force-with-lease'
-alias gpot='git push origin --tags'
-alias grb='git rebase'
-alias grbc='git rebase --continue'
-alias grbi='git rebase -i'
-alias grbil='git rebase -i HEAD~10'
-alias grbs='git rebase --skip'
-alias gs='git show -p'
+alias gst='git stash' # stash git changes and put them into your list
+alias gdtp='git stash pop' # bring back your changes, but it removes them from your stash
+alias gps='(git stash --include-untracked | grep -v "No local changes to save") && gpp && git stash pop || echo "Fail!"'
+
+
+
+################ git submodule ###########
+
 alias gsm='git submodule'
 alias gsmu='git submodule update --init --recursive'
+
+
+################ git clean #########
+
+alias gcln='git clean -xfd' # remove untracked files
+
+################# gist ##################
+
+alias gist-paste="gist --private --copy --paste --filename"  # gist-paste filename.ext -- create private Gist from the clipboard contents
+alias gist-file="gist --private --copy"  # gist-file filename.ext -- create private Gist from a file
+alias gist='gist -p -c'
+
+
+################# git clone ############
+
+alias gcl='git clone'
+
+################# git unstage ###############
+
 alias gu='git unstage'
-alias gup='git up'
 alias gus='git unstage'
-alias gvc='vim `git diff --name-only --diff-filter=U`'
-alias gvm='vim `git diff --name-only --diff-filter=M`'
+
+################# gpg #######################
+
+alias gpgdecrypt='gpg --decrypt-files'
+alias gpgencrypt='gpg --default-recipient-self --armor --encrypt-files'
+
+
+####################### Misc #############
+
+alias grok="ngrok start rem.jsbin-dev.com static.rem.jsbin-dev.com learn.rem.jsbin-dev.com"
+alias gta='git tag -a -m'
+alias gf='git reflog' # allows you to see every step you have made with git allowing you to retract and reinstate your steps
+alias gsl='git shortlog -sn' # quickly get a list of contributors and see how many commits each person has
+# `cd` to Git repo root
+alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
+alias gfrbi='gfrb --interactive'
+alias gg='git grep'
+alias gk='gitk &>/dev/null'
+
+##################################################################

@@ -44,4 +44,4 @@ xfce4-clipman &
 #nautilus
 #ptxconf
 xbacklight -set 65
-feh --bg-fill ~/Pictures &
+#feh --bg-fill ~/Pictures &

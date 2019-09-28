@@ -25,12 +25,12 @@ if [[ "$SHELL" == "$(which zsh 2>/dev/null)" ]]; then
   alias 9='cd -9'
 fi
 
-alias dots="cd ~/dotfiles;la"
-alias fa="cd ~/dotfiles/function_and_aliases;la"
-alias i3="cd ~/dotfiles/i3/i3/;la"
-alias poly="cd ~/dotfiles/polybar/;la"
-alias scripts="cd ~/scripts;la"
-alias dl='cd ~/Downloads;la'
+alias dots="cd ~/dotfiles;ls"
+alias fa="cd ~/dotfiles/function_and_aliases;ls"
+alias i3="cd ~/dotfiles/i3/i3/;ls"
+alias poly="cd ~/dotfiles/polybar/;ls"
+alias scripts="cd ~/scripts;ls"
+alias dl='cd ~/Downloads;ls'
 alias pydot='pycharm ~/dotfiles'
 alias pyscript='pycharm ~/scirpts'
 alias i3poly="vim ~/.config/polybar/config"
@@ -44,7 +44,7 @@ alias xre="vim ~/.Xresource"
 alias h="history"
 alias jj="jobs"
 alias clr="clear"
-alias etc="cd /etc ; l"
+alias etc="cd /etc ; ls"
 alias ex="exit"
 
 ## enable color support of ls and also add handy aliases

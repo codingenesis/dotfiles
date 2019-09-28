@@ -19,7 +19,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 map <C-n> :NERDTreeToggle<CR>
 
-" To clsose vim when only window left is nerdtree
+"To clsose vim when only window left is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
@@ -69,13 +69,13 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
+let g:airline_solarized_bg='light'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 set laststatus=2
 
-"syntax enable
-"set background=light
+syntax enable
+set background=light
 
 """""""""""""""""""""""vim indent guides""""""""""""
 
@@ -437,8 +437,8 @@ let mapleader = ','
 " (Avoid redrawing the screen and reducing performance over SSH)
   if ($SSH_CLIENT || $SSH_TTY)
     set lazyredraw " (default: off)
-        ¦       ¦  " screen will not be redrawn while executing macros
-        ¦       ¦  " registers and other commands that have not been typed.
+                  " screen will not be redrawn while executing macros
+                  " registers and other commands that have not been typed.
     set number " (default: off)
     set noshowcmd
         ¦       ¦     " NOTE: Use :redraw,:redraw! or <C-L> to redraw syntax
