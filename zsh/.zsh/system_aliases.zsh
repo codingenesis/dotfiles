@@ -329,3 +329,187 @@ alias ta="tmux attach -t host"
 #alias graf='grafana-server --config=/home/arch/.config/grafana/grafana.ini --homepath=/usr/share/grafana'
 
 
+####################### yet to finalize ################3
+#
+## IP addresses
+#
+##alias ips="sudo ifconfig -a | grep -o 'inet6\\? \\(addr:\\)\\?\\s\\?\\(\\(\\([0-9]\\+\\.\\)\\{3\\}[0-9]\\+\\)\\|[a-fA-F0-9:]\\+\\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print  }'"
+#
+#
+#
+#
+#
+#
+#
+## Custom Shortcuts
+#
+# #alias bwlogin='bw login --code "$(auth bitwarden)" "$(< .mutt/accounts/com.gmail/email.txt)" "$(gpg --no-tty --quiet --decrypt ~/.bitwarden/secret.gpg)"'
+# #alias bwunlock='export BW_SESSION="$(bw unlock --raw $(gpg --no-tty --quiet --decrypt ~/.bitwarden/secret.gpg))"'
+#
+#
+##alias l='ls -l'
+##alias la='ls -lA'
+##alias lr='ls -R'
+#
+#alias dud='du -d 1 -h'
+#alias duf='du -sh *'
+#
+#
+#export EDITOR=vim
+#
+################
+##  gpg-agent  #
+################
+## GPG variables
+#GPG_TTY=$(tty)
+#export GPG_TTY
+#
+#
+## Compatibility for ssh connection
+#export TERM=xterm-256color
+#
+#
+#
+#
+#############
+##  Others  #
+#############
+#
+#export PATH=/home/arch/.local/bin:$PATH
+#
+#
+#
+#alias co='git checkout'
+#alias cr2lf="perl -pi -e 's/\x0d/\x0a/gs'"
+#alias curltime='curl -w "@$HOME/.curl-format" -o /dev/null -s'
+#alias d='docker'
+#alias dc='docker-compose'
+#alias dls='dpkg -L'
+#alias dotenv="eval \$(egrep -v '^#' .env | xargs)"
+#alias dsl='dpkg -l | grep -i'
+#alias dud='du -sh -- * | sort -h'
+#alias e='emacs'
+#alias ec='emacsclient --no-wait'
+#alias f1="awk '{print \$1}'"
+#alias f2="awk '{print \$2}'"
+#alias f2k9='f2k -9'
+#alias f2k='f2 | xargs -t kill'
+#alias f='fg'
+#alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
+#
+#alias i4='sed "s/^/    /"'
+#alias icat='lsbom -f -l -s -pf'
+#alias iinstall='sudo installer -target / -pkg'
+#alias ils='ls /var/db/receipts/'
+#alias ishow='pkgutil --files'
+#alias k='tree -h'
+#alias l="ls -lh"
+#alias ll="l -a"
+#alias lt='ls -lt'
+#alias ltr='ls -ltr'
+#alias ndu='node --debug-brk =nodeunit'
+#alias nerdcrap='cat /dev/urandom | xxd | grep --color=never --line-buffered "be ef"'
+#alias netwhat='lsof -i +c 40'
+#alias nmu='nodemon =nodeunit'
+#alias notifydone='terminal-notifier -message Done.'
+#alias pt='pstree -pul'
+#alias px='pilot-xfer -i'
+#alias rake='noglob rake'
+#alias randpass="LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c 24 ; echo"
+#alias rgg='_rgg () { rg --color always --heading $@ | less }; _rgg'
+#alias ri='ri -f ansi'
+#alias rls='screen -ls'
+#alias rrg='rgg'
+#alias rsync-usual='rsync -azv -e ssh --delete --progress'
+#alias rxvt-invert="echo -n '[?5t'"
+#alias rxvt-scrollbar="echo -n '[?30t'"
+#alias scp='scp -C -p'
+#alias screen='screen -U'
+#alias slurp='wget -t 5 -c -nH -r -k -p -N --no-parent'
+#alias sshx='ssh -C -c blowfish -X'
+#alias st='git status'
+#alias stt='git status -uall'
+#alias t='tmux attach'
+#alias tree="tree -F -A -I CVS"
+#alias tt='tail -n 9999'
+#alias wgetdir='wget -r -l1 -P035 -nd --no-parent'
+#alias whois='whois -h geektools.com'
+#
+#
+#
+## add ssh-key to ssh-agent when key exist
+#if [ "$SSH_AUTH_SOCK" != "" ] && [ -f ~/.ssh/id_rsa ] && [ -x /usr/bin/ssh-add  ]; then
+#  ssh-add -l >/dev/null || alias ssh='(ssh-add -l >/dev/null || ssh-add) && unalias ssh; ssh'
+#fi
+#
+#
+## add ssh-key to ssh-agent when key exist
+#if [ "$SSH_AUTH_SOCK" != "" ] && [ -f "~/.ssh/id_rsa" ] && [ -x "/usr/bin/ssh-add"  ]; then
+#  ssh-add -l >/dev/null || alias ssh='(ssh-add -l >/dev/null || ssh-add) && unalias ssh; ssh'
+#fi
+#
+#
+#
+#
+#
+## ------------------------------------------------------------------------------
+## | auto-completion (for bash)                                                 |
+## ------------------------------------------------------------------------------
+#
+## Automatically add completion for all aliases to commands having completion functions
+## source: http://superuser.com/questions/436314/how-can-i-get-bash-to-perform-tab-completion-for-my-aliases
+#alias_completion()
+#{
+#  local namespace="alias_completion"
+#
+#  # parse function based completion definitions, where capture group 2 => function and 3 => trigger
+#  local compl_regex='complete( +[^ ]+)* -F ([^ ]+) ("[^"]+"|[^ ]+)'
+#  # parse alias definitions, where capture group 1 => trigger, 2 => command, 3 => command arguments
+#  local alias_regex="alias ([^=]+)='(\"[^\"]+\"|[^ ]+)(( +[^ ]+)*)'"
+#
+#  # create array of function completion triggers, keeping multi-word triggers together
+#  eval "local completions=($(complete -p | sed -rne "/$compl_regex/s//'\3'/p"))"
+#  (( ${#completions[@]} == 0 )) && return 0
+#
+#  # create temporary file for wrapper functions and completions
+#  rm -f "/tmp/${namespace}-*.XXXXXXXXXX" # preliminary cleanup
+#  local tmp_file="$(mktemp "/tmp/${namespace}-${RANDOM}.XXXXXXXXXX")" || return 1
+#
+#  # read in "<alias> '<aliased command>' '<command args>'" lines from defined aliases
+#  local line; while read line; do
+#    eval "local alias_tokens=($line)" 2>/dev/null || continue # some alias arg patterns cause an eval parse error
+#    local alias_name="${alias_tokens[0]}" alias_cmd="${alias_tokens[1]}" alias_args="${alias_tokens[2]# }"
+#
+#    # skip aliases to pipes, boolan control structures and other command lists
+#    # (leveraging that eval errs out if $alias_args contains unquoted shell metacharacters)
+#    eval "local alias_arg_words=($alias_args)" 2>/dev/null || continue
+#
+#    # skip alias if there is no completion function triggered by the aliased command
+#    [[ " ${completions[*]} " =~ " $alias_cmd " ]] || continue
+#    local new_completion="$(complete -p "$alias_cmd")"
+#
+#    # create a wrapper inserting the alias arguments if any
+#    if [[ -n $alias_args ]]; then
+#     local compl_func="${new_completion/#* -F /}"; compl_func="${compl_func%% *}"
+#     # avoid recursive call loops by ignoring our own functions
+#     if [[ "${compl_func#_$namespace::}" == $compl_func ]]; then
+#       local compl_wrapper="_${namespace}::${alias_name}"
+#         echo "function $compl_wrapper {
+#           (( COMP_CWORD += ${#alias_arg_words[@]} ))
+#           COMP_WORDS=($alias_cmd $alias_args \${COMP_WORDS[@]:1})
+#           $compl_func
+#         }" >> "$tmp_file"
+#         new_completion="${new_completion/ -F $compl_func / -F $compl_wrapper }"
+#     fi
+#    fi
+#
+#    # replace completion trigger by alias
+#    new_completion="${new_completion% *} $alias_name"
+#    echo "$new_completion" >> "$tmp_file"
+#  done < <(alias -p | sed -rne "s/$alias_regex/\1 '\2' '\3'/p")
+#  source "$tmp_file" && rm -f "$tmp_file"
+#}
+#if [ -n "$BASH_VERSION" ]; then
+#  alias_completion
+#fi
+#unset -f alias_completion
