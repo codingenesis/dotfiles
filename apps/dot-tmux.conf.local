@@ -282,8 +282,8 @@ tmux_conf_copy_to_os_clipboard=true
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
-#set -g status-keys vi
-#set -g mode-keys vi
+set -g status-keys vi
+set -g mode-keys vi
 
 # replace C-b by C-a instead of using both prefixes
 # set -gu prefix2
@@ -303,10 +303,10 @@ set -g default-terminal "screen-256color"
    tmux-plugins/tpm             \
    tmux-plugins/tmux-resurrect  \
    tmux-plugins/tmux-continuum  \
-   tmux-plugins/tmux-yank       \
+#   tmux-plugins/tmux-yank       \
    tmux-plugins/tmux-logging    \
    tmux-plugins/tmux-sessionist \
-   tmux-plugins/tmux-pain-control\
+#   tmux-plugins/tmux-pain-control\
  '
 
  set -g @continuum-restore 'on'
@@ -314,20 +314,8 @@ set -g default-terminal "screen-256color"
  # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
  run '~/.tmux/plugins/tpm/tpm'
 
-#set -g @plugin 'tmux-plugins/tpm'
-#set -g @plugin 'tmux-plugins/tmux-sensible'
-#set -g @plugin 'tmux-plugins/tmux-resurrect'
-#set -g @plugin 'tmux-plugins/tmux-continuum'
-#set -g @plugin 'tmux-plugins/tmux-yank'
-#set -g @plugin 'tmux-plugins/tmux-logging'
-#set -g @plugin 'tmux-plugins/tmux-sessionist'
-#set -g @plugin 'tmux-plugins/tmux-pain-control'
-
 #set -g @continuum-restore 'on'
 
 #set-option -g default-shell /bin/zsh
 
 #set-option -ga update-environment " DBUS_SESSION_BUS_ADDRESS" 
-
-# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-#run '~/.tmux/plugins/tpm/tpm'
