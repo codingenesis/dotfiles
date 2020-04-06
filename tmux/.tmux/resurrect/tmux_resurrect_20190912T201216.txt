@@ -1,8 +1,0 @@
-pane	0	1	:weechat	0	:#	1	:/home/codin	1	weechat	:weechat
-pane	0	2	:bash	1	:*	1	:/home/codin	1	bash	:
-pane	0	2	:bash	1	:*	2	:/home/codin	0	bash	:
-pane	0	3	:bash	0	:#-	1	:/home/codin	1	bash	:
-window	0	1	0	:#	b53d,191x42,0,0,0
-window	0	2	1	:*	1bf6,191x42,0,0{95x42,0,0,3,95x42,96,0,4}
-window	0	3	0	:#-	b542,191x42,0,0,5
-state	0	

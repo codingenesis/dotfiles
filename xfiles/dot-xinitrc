@@ -16,7 +16,7 @@ fi
 
 [ -f ~/.xprofile ] && source ~/.xprofile
 #[ -f ~/.bash_profile ] && source ~/.bash_profile
-systemctl --user import-environment DISPLAY
+#systemctl --user import-environment DISPLAY
 
 #exec awesome
 #exec startkde

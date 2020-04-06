@@ -55,7 +55,7 @@ tmux_conf_theme_highlight_focused_pane=false
 
 # focused pane colours:
 tmux_conf_theme_focused_pane_fg='default'
-tmux_conf_theme_focused_pane_bg='#0087d7'               # light blue
+tmux_conf_theme_focused_pane_bg='#0088d7'               # light blue
 
 # pane border style, possible values are:
 #   - thin (default)
@@ -72,7 +72,7 @@ tmux_conf_theme_pane_active_indicator='#00afff'         # light blue
 
 # status line style
 tmux_conf_theme_message_fg='#000000'                    # black
-tmux_conf_theme_message_bg='#e4e4e4'                    # yellow
+tmux_conf_theme_message_bg='#ff9500'                    # *orange
 tmux_conf_theme_message_attr='bold'
 
 # status line command style (<prefix> : Escape)
@@ -86,9 +86,9 @@ tmux_conf_theme_mode_bg='#ffff00'                       # yellow
 tmux_conf_theme_mode_attr='bold'
 
 # status line style
-tmux_conf_theme_status_fg='#8a8a8a'                     # light gray
-tmux_conf_theme_status_bg='#8a8a8a'                     # dark gray
-tmux_conf_theme_status_attr='none'
+tmux_conf_theme_status_fg='#232323'                     # *dark grey
+tmux_conf_theme_status_bg='#232323'                     # *dark grey
+tmux_conf_theme_status_attr='bold'
 
 # terminal title
 #   - built-in variables are:
@@ -108,8 +108,8 @@ tmux_conf_theme_terminal_title='#h ❐ #S ● #I #W'
 #     - #{hostname_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_window_status_fg='#fdf6e3'              # light gray
-tmux_conf_theme_window_status_bg='#8a8a8a'              # dark gray
+tmux_conf_theme_window_status_fg='#baa7dc'              # *ll_violet
+tmux_conf_theme_window_status_bg='#232323'              # *dark grey
 tmux_conf_theme_window_status_attr='bold'
 tmux_conf_theme_window_status_format='#I #W'
 #tmux_conf_theme_window_status_format='#{circled_window_index} #W'
@@ -123,8 +123,8 @@ tmux_conf_theme_window_status_format='#I #W'
 #     - #{hostname_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_window_status_current_fg='#94a3a5'      # black
-tmux_conf_theme_window_status_current_bg='#fdf6e3'      # light blue
+tmux_conf_theme_window_status_current_fg='#101314'      # *black
+tmux_conf_theme_window_status_current_bg='#80d08c'      # *l_green
 tmux_conf_theme_window_status_current_attr='bold'
 tmux_conf_theme_window_status_current_format='#I #W'
 #tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
@@ -141,7 +141,7 @@ tmux_conf_theme_window_status_bell_bg='default'
 tmux_conf_theme_window_status_bell_attr='blink,bold'
 
 # window last status style
-tmux_conf_theme_window_status_last_fg='#ffb771'         # light blue
+tmux_conf_theme_window_status_last_fg='#80d08c'         # *dark yellow
 tmux_conf_theme_window_status_last_bg='default'
 tmux_conf_theme_window_status_last_attr='none'
 
@@ -180,16 +180,16 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
-tmux_conf_theme_status_right='#{prefix}#{pairing} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
+tmux_conf_theme_status_right='#{prefix}#{pairing} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} | #{username}#{root} | #{hostname} '
 
 # status left style
-tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'  # black, white , white
-tmux_conf_theme_status_left_bg='#e4e4e4,#8a8a8a,#00afff'  # yellow, pink, white blue
+tmux_conf_theme_status_left_fg='#000000,#64a2ff,#e4e4e4'  # black, *l_blue , white
+tmux_conf_theme_status_left_bg='#7e5eb5,#232323,#00afff'  # *violet, *black, white blue
 tmux_conf_theme_status_left_attr='bold,bold,none'
 
 # status right style
-tmux_conf_theme_status_right_fg='#fdf6e3,#073642,#000000' # light gray, white, black
-tmux_conf_theme_status_right_bg='#8a8a8a,#d3d1d1,#e4e4e4' # dark gray, red, white
+tmux_conf_theme_status_right_fg='#fdf6e3,#000000,#000000' # light gray, black, black
+tmux_conf_theme_status_right_bg='#232323,#9d80d0,#7e5eb5' # *black, *l_violet, *violet
 tmux_conf_theme_status_right_attr='bold,bold,bold'
 
 # pairing indicator
@@ -305,10 +305,11 @@ set -g default-terminal "screen-256color"
    tmux-plugins/tmux-continuum  \
 #   tmux-plugins/tmux-yank       \
    tmux-plugins/tmux-logging    \
+   tmux-plugins/tmux-copycat    \
    tmux-plugins/tmux-sessionist \
 #   tmux-plugins/tmux-pain-control\
  '
-
+set -g @resurrect-dir '/home/codin/Dropbox/Linux/tmux/'
  set -g @continuum-restore 'on'
 
  # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)

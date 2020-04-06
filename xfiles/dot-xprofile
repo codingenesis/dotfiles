@@ -15,7 +15,7 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 ## Start apps on X
 
 # system apps
-bash /home/codin/.screenlayout/screen_layout.sh &
+#bash /home/codin/.screenlayout/screen_layout.sh &
 #bash /home/codin/scripts/live_wallpaper &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 pasystray &
@@ -24,7 +24,8 @@ syndaemon -i 1 -K -R &
 dunst -config ~/.config/dunst/dunstrc &
 blueman-applet &
 nm-applet &
-
+#dropbox &
+#picom --experimental-backends --backend glx  --config /home/codin/dotfiles/i3_workstation_single_screen/i3/picom.conf &
 # my apps
 #slack &
 #skypeforlinux &
