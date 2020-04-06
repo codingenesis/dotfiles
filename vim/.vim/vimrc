@@ -1,4 +1,4 @@
-" My .vimrc copied over the years from numerous people from github and irc
+" My custom vim config developed over the years
 
 call plug#begin('~/.vim/plugged')
 
@@ -6,8 +6,51 @@ call plug#begin('~/.vim/plugged')
 
 """""""""""""""""""""""""""""nerdtree""""""""""""""""""""""""
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'preservim/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+set encoding=UTF-8
+
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+
+let s:brown = "905532"
+let s:aqua = "#82CF1C"
+let s:blue = "689FB6"
+let s:darkBlue = "44788E"
+let s:purple = "834F79"
+let s:lightPurple = "834F79"
+let s:red = "AE403F"
+let s:beige = "F5C06F"
+let s:yellow = "F09F17"
+let s:orange = "D4843E"
+let s:darkOrange = "F16529"
+let s:pink = "CB6F6F"
+let s:salmon = "EE6E73"
+let s:green = "8FAA54"
+let s:lightGreen = "31B53E"
+let s:white = "FFFFFF"
+let s:rspec_red = 'FE405F'
+let s:git_orange = 'F54D27'
+
+hi Directory ctermfg=green
+
+let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExtensionHighlightColor['css'] = s:blue " sets the color of css files to blue
+
+let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange " sets the color for .gitignore files
+
+let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red "sets the color for files ending with _spec.rb
+
+"let g:NERDTreeLimitedSyntax = 1
+let g:NERDTreeDisableExactMatchHighlight = 1
+let g:NERDTreeDisablePatternMatchHighlight = 1
+let g:NERDTreeHighlightCursorline = 0
+
+autocmd vimenter * NERDTree
 
 " To open when you don't mention any file
 autocmd StdinReadPre * let s:std_in=1
@@ -19,9 +62,10 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 map <C-n> :NERDTreeToggle<CR>
 
+let NERDTreeShowHidden=1
+
 " To clsose vim when only window left is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 
 """""""""""""""""""vim-sensible defaults""""""""""""""""""
 Plug 'tpope/vim-sensible'
@@ -30,16 +74,12 @@ Plug 'tpope/vim-sensible'
 
 Plug 'jiangmiao/auto-pairs'
 
-"""""""""""""""""""nerdcommenter"""""""""""""
-
-Plug 'scrooloose/nerdcommenter'
-
 """""""""""""""""""indentLine""""""""""""""""
 
 Plug 'Yggdroot/indentLine'
 
 let g:indentLine_setColors = 0
-
+"let g:indentLine_setColors = 1
 " Vim
 let g:indentLine_color_term = 239
 
@@ -63,7 +103,7 @@ let g:indentLine_conceallevel = 2
 
 """""""""""""""""""vim-tmux-navigator"""""""""""
 
-Plug 'christoomey/vim-tmux-navigator'
+"Plug 'christoomey/vim-tmux-navigator'
 
 """"""""""""""""""""""""vim airline"""""""""""""""""""""
 Plug 'vim-airline/vim-airline'
@@ -79,11 +119,11 @@ set laststatus=2
 
 """""""""""""""""""""""vim indent guides""""""""""""
 
-Plug 'nathanaelkane/vim-indent-guides'
+"Plug 'nathanaelkane/vim-indent-guides'
 
 """""""""""""""""""""vim fugitive""""""""""""
 
-Plug 'tpop/vim-fugitive'
+"Plug 'tpop/vim-fugitive'
 
 """"""""""""""""""""""syntastic""""""""""""""""
 
@@ -154,7 +194,7 @@ function! FindConfig(prefix, what, where)
 
 
 """""""""""""""""""""""""""""""""""" vim-unimpaired """""""""""""""""""""""""""
-Plug 'tpope/vim-unimpaired'
+"Plug 'tpope/vim-unimpaired'
 
 """"""""""""""""""""""""""""""""""" python-mode """"""""""""""""""""""""""
 Plug 'python-mode/python-mode'
@@ -162,27 +202,30 @@ Plug 'python-mode/python-mode'
 let g:pymode_rope = 0
 let g:pymode_python = 'python3'
 
-Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi-vim'
 
-let g:jedi#goto_command = "<leader>d"
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
+"let g:jedi#goto_command = "<leader>d"
+"let g:jedi#goto_assignments_command = "<leader>g"
+"let g:jedi#goto_definitions_command = ""
+"let g:jedi#documentation_command = "K"
+"let g:jedi#usages_command = "<leader>n"
+"let g:jedi#completions_command = "<C-Space>"
+"let g:jedi#rename_command = "<leader>r"
 
 """""""""""""""""YouCompleteMe""""""""""""""""""""""""""""""""""""
 "Plug 'valloric/youcompleteme'
 
-let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 """"""""""""""""" Surround.vim"""""""""""""""""""""""
+
 Plug 'tpope/vim-surround'
 
 """""""""""""""" ctrlp.vim""""""""""""""""""""""""
+
 Plug 'ctrlpvim/ctrlp.vim'
 
 """""""""" solarized""""""""""""""""
+
 Plug 'altercation/vim-colors-solarized'
 
 """""""" nerd commenter""""""""""
@@ -218,44 +261,29 @@ let g:NERDTrimTrailingWhitespace = 1
 "let g:gitgutter_max_signs = 500  " default value
 
 """""""""""""""""" easymotion"""""""""""""
+
 Plug 'easymotion/vim-easymotion'
 
-"""""""""""""""tabular"""""""""""""
-Plug 'godlygeek/tabular'
-
 """""""""""""""""supertab""""""""""
+
 Plug 'ervandew/supertab'
 
-"""""""""""""""repeat-vim"""""""'''
-Plug 'tpope/vim-repeat'
-
 """"""""""""""emmet""""""""""""""""
+
 Plug 'mattn/emmet-vim'
 
-"""""""""""""""commentary""""""""
-Plug 'tpope/vim-commentary'
-
-""""""""""""""delimitmate"""""""""""""
-Plug 'raimondi/delimitmate'
-
-""""""""indentguides""""""""""""
-Plug 'nathanaelkane/vim-indent-guides'
-
 """"""""""molokai""""""""""""
+
 Plug 'tomasr/molokai'
 
 """""""""""""""vim-colorschemes"""""""""
+
 Plug 'flazz/vim-colorschemes'
 
-"""""""""""""vim-markdown"""""""""
-Plug 'tpope/vim-markdown'
-
 """""""""""""ultisnip""""""""""""""
-
-" Track the engine.
 Plug 'SirVer/ultisnips'
 
-" Snippets are separated from the engine. Add this if you want them:
+""""""""vim-snippets""""""""
 Plug 'honza/vim-snippets'
 
 " Trigger configuration. Do not use <tab> if you use
@@ -270,54 +298,14 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-
-"""""""""""""""vimtmuxnavigator"""""""""""
-
-Plug 'christoomey/vim-tmux-navigator'
-
-
 """"""""""""""json""""""""
 
 Plug 'elzr/vim-json'
-
-""""""""""""sensible"""""""
-
-Plug 'tpope/vim-sensible'
-
-
-""""""""""""""autopairs""""""""
-
-Plug 'jiangmiao/auto-pairs'
-
-""""""""""indentline"""""""""""
-
-Plug 'yggdroot/indentline'
-
-let g:indentLine_setColors = 1
-
-
-""""""""""""""html5"""""""""""""""
-
-Plug 'othree/html5.vim'
-
 
 """"tagbar"""
 Plug 'majutsushi/tagbar'
 
 nmap <F8> :TagbarToggle<CR>
-
-
-"""""""vim-flake8""""""
-
-Plug 'nvie/vim-flake8'
-
-""""""""""""""""" vimagit """""
-
-Plug 'jreybert/vimagit'
-
-"""""""""""""""" Ctrlspace"""""
-
-Plug 'vim-ctrlspace/vim-ctrlspace'
 
 """"""""""""""""vim-signify""""""""""""
 
@@ -332,8 +320,8 @@ highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
 highlight SignifySignAdd    cterm=bold ctermbg=none ctermfg=119
 highlight SignifySignDelete cterm=bold ctermbg=none ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=none ctermfg=227
-
-highlight clear SignColumn
+highlight SignColumn ctermbg=none
+"highlight clear SignColumn
 
 """"""""""""""""vim-undotree """""""""""
 
@@ -345,16 +333,6 @@ if has("persistent_undo")
     set undodir=~/.undodir/
     set undofile
 endif
-
-""""""""""""""""gundo.vim"""""""""""""""
-
-Plug 'sjl/gundo.vim'
-
-nnoremap <F5> :GundoToggle<CR>
-
-let g:gundo_width = 60
-let g:gundo_preview_height = 40
-let g:gundo_right = 1
 
 
 call plug#end()
@@ -706,3 +684,7 @@ let mapleader = ','
 " let Vundle manage Vundle, required
 " Plugin 'VundleVim/Vundle.vim'
 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>

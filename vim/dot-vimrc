@@ -25,7 +25,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let NERDTreeShowHidden=1
 
 """""""""""""""""""vim-sensible defaults""""""""""""""""""
-Plug 'tpope/vim-sensible'
+
+"Plug 'tpope/vim-sensible'
 
 """""""""""""""""""auto-pairs""""""""""""""""
 
@@ -36,22 +37,22 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
 
 " Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
+"let g:NERDSpaceDelims = 1
 
 " Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
+"let g:NERDCompactSexyComs = 1
 
 " Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
+"let g:NERDDefaultAlign = 'left'
 
 " Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
+"let g:NERDCommentEmptyLines = 1
 
 " Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
+"let g:NERDTrimTrailingWhitespace = 1
 
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
-let g:NERDToggleCheckAllLines = 1"
+"let g:NERDToggleCheckAllLines = 1"
 "
 
 """""""""""""""""""indentLine""""""""""""""""
@@ -88,8 +89,8 @@ let g:indentLine_conceallevel = 2
 """"""""""""""""""""""""vim airline"""""""""""""""""""""
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
+"let g:airline_theme='solarized'
+"let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_powerline_fonts = 1
@@ -98,13 +99,6 @@ set laststatus=2
 "syntax enable
 "set background=light
 
-"""""""""""""""""""""""vim indent guides""""""""""""
-
-"Plug 'nathanaelkane/vim-indent-guides'
-
-"""""""""""""""""""""vim fugitive""""""""""""
-
-Plug 'tpop/vim-fugitive'
 
 """"""""""""""""""""""syntastic""""""""""""""""
 
@@ -138,7 +132,7 @@ function! FindConfig(prefix, what, where)
 
 "let g:syntastic_quiet_messages = { "type": "style" }
 
- let g:syntastic_python_checkers = ['frosted', 'python']
+  let g:syntastic_python_checkers = ['frosted', 'python']
   let g:syntastic_vim_checkers = ['vint']
   let g:syntastic_ruby_checkers = ['mri', 'rubocop']
   let g:syntastic_sh_checkers = ['shellcheck'] " best one ? or bashate ?
@@ -161,8 +155,6 @@ function! FindConfig(prefix, what, where)
   let g:go_list_type = 'quickfix'
   let g:go_fmt_fail_silently = 1
 
-
-
   function! ExpandSnippetOrReturn()
     let snippet = UltiSnips#ExpandSnippetOrJump()
     if g:ulti_expand_or_jump_res > 0
@@ -175,6 +167,7 @@ function! FindConfig(prefix, what, where)
 
 
 """""""""""""""""""""""""""""""""""" vim-unimpaired """""""""""""""""""""""""""
+
 Plug 'tpope/vim-unimpaired'
 
 """"""""""""""""""""""""""""""""""" python-mode """"""""""""""""""""""""""
