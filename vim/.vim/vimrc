@@ -50,7 +50,7 @@ let g:NERDTreeDisableExactMatchHighlight = 1
 let g:NERDTreeDisablePatternMatchHighlight = 1
 let g:NERDTreeHighlightCursorline = 0
 
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 
 " To open when you don't mention any file
 autocmd StdinReadPre * let s:std_in=1
@@ -688,3 +688,12 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Create window splits easier. The default
+" way is Ctrl-w,v and Ctrl-w,s. I remap
+" this to vv and ss
+nnoremap <silent> vv <C-w>v
+nnoremap <silent> ss <C-w>s
+
+set splitbelow
+set splitright
