@@ -30,7 +30,7 @@ module-rounded = 5
 radius = 5
 dpi-x = 0
 dpi-y = 0
-monitor = HDMI2
+monitor = eDP
 
 font-0 = Zekton:size=9;2
 font-1 = Font Awesome 5 Free:style=Regular:pixelsize=12;3
@@ -41,7 +41,7 @@ font-4 = MaterialIcons:size=12;6
 [bar/center_top]
 inherit = bar/default
 modules-left = i3_center 
-modules-center = spotify 
+;;modules-center = spotify 
 modules-right = powermenu
 bottom = false
 border-bottom-size = 1
@@ -68,19 +68,19 @@ tray-scale = 1.0
 ;;  LEFT_TOP   ;;
 ;;;;;;;;;;;;;;;;;
 
-[module/spotify]
-type = custom/script
-exec-if = ~/.config/polybar/script/spotify.sh --isPlaying
-exec = ~/.config/polybar/script/spotify.sh --title
-click-left = i3-msg workspace 5
-interval = 5
-format = %{F#ACACCB}  <label>  %{F-}
-format-prefix-padding = 2
-format-prefix = ""
-format-prefix-foreground = ${colors.backgroundRgba}
-format-prefix-background = ${colors.blueScreen1}
-format-background = ${colors.backgroundRgba}
-label = %output%
+;;[module/spotify]
+;;type = custom/script
+;;exec-if = ~/.config/polybar/script/spotify.sh --isPlaying
+;;exec = ~/.config/polybar/script/spotify.sh --title
+;;click-left = i3-msg workspace 5
+;;interval = 5
+;;format = %{F#ACACCB}  <label>  %{F-}
+;;format-prefix-padding = 2
+;;format-prefix = ""
+;;format-prefix-foreground = ${colors.backgroundRgba}
+;;format-prefix-background = ${colors.blueScreen1}
+;;format-background = ${colors.backgroundRgba}
+;;label = %output%
 
 ;;;;;;;;;;;;;;;;;
 ;; MODULES FOR ;;
