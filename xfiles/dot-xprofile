@@ -34,7 +34,7 @@ dunst -config ~/.config/dunst/dunstrc &
 blueman-applet &
 nm-applet &
 #dropbox &
-#picom --experimental-backends --backend glx  --config /home/codin/dotfiles/i3_workstation_single_screen/i3/picom.conf &
+picom --experimental-backends --backend glx  --config /home/codin/dotfiles/i3_workstation/i3/picom.conf &
 # my apps
 #slack &
 #skypeforlinux &
