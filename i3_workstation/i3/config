@@ -43,7 +43,7 @@ floating_modifier $mod
 #i3 Shortcut
 
 #Xterm+tmux
-bindsym $mod+Return exec gnome-terminal 
+bindsym $mod+Return exec xfce4-terminal 
 
 #Aumentar e diminuir o volume
 bindsym Mod1+Up exec --no-startup-id amixer -q set 'Master' 5%+
@@ -269,29 +269,29 @@ set $WS13 3. 
 set $WS14 4. 
 set $WS15 5. 
 
-workspace "0 "    output DP-1     #empty
-workspace "1  "  output DP-1     #done
-workspace "2 "   output DP-1     #empty
-workspace "3 "   output DP-1     #done
-workspace "4  "  output DP-1     #done
-workspace "5  "  output DP-1 
+workspace "0 "    output HDMI-0     #empty
+workspace "1  "  output HDMI-0     #done
+workspace "2 "   output HDMI-0    #empty
+workspace "3 "   output HDMI-0     #done
+workspace "4  "  output HDMI-0     #done
+workspace "5  "  output HDMI-0 
 #workspace "6 "  output HDMI2
-workspace "6 "   output DP-1     #buggy spotify
-workspace "7  "  output DP-1     #done
-workspace "8  "  output DP-1     #empty
-workspace "9 "   output DP-1     #done
+workspace "6 "   output HDMI-0     #buggy spotify
+workspace "7  "  output HDMI-0     #done
+workspace "8  "  output HDMI-0     #empty
+workspace "9 "   output HDMI-0     #done
 
-workspace "1. "  output HDMI-0   #done
-workspace "2. "  output HDMI-0   #done
-workspace "3. "  output HDMI-0   #done
-workspace "4. "  output HDMI-0   #empty
-workspace "5. "  output HDMI-0   #done
+workspace "1. "  output DP-1   #done
+workspace "2. "  output DP-1   #done
+workspace "3. "  output DP-1   #done
+workspace "4. "  output DP-1   #empty
+workspace "5. "  output DP-1   #done
 
-workspace "6.  " output DVI-D-1  #done
-workspace "7.  " output DVI-D-1  #done
-workspace "8.  " output DVI-D-1  #done
-workspace "9. "  output DVI-D-1   #done
-workspace "0.  " output DVI-D-1  #empty
+workspace "6.  " output DVI-D-0  #done
+workspace "7.  " output DVI-D-0  #done
+workspace "8.  " output DVI-D-0  #done
+workspace "9. "  output DVI-D-0   #done
+workspace "0.  " output DVI-D-0  #empty
 
 ##======================================================================================
 ##======================================================================================
