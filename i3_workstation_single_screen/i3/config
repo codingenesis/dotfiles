@@ -45,9 +45,9 @@ floating_modifier $mod
 #Xterm+tmux
 bindsym $mod+Return exec xfce4-terminal 
 
-#Aumentar e diminuir o volume
-bindsym Mod1+Up exec --no-startup-id amixer -q set 'Master' 5%+
-bindsym Mod1+Down exec --no-startup-id amixer -q set 'Master' 5%-
+#exec --no-startup-id /usr/lib/gsd-xsettings
+#Mod1+Up exec --no-startup-id amixer -q set 'Master' 5%+
+#bindsym Mod1+Down exec --no-startup-id amixer -q set 'Master' 5%-
 #Ncmpcpp
 #bindsym Mod1+shift+n exec --no-startup-id konsole -name xterm -e ncmpcpp -s playlist
 #Ranger

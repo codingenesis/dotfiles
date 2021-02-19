@@ -80,7 +80,7 @@ border-left-color = #002f343f
 
 [bar/center_top]
 inherit = bar/default
-monitor = HDMI-0
+monitor = DP-0.3
 modules-left = i3_center
 modules-center = cpu spotify memory
 modules-right = pkg powermenu
@@ -110,7 +110,7 @@ tray-scale = 1.0
 
 [bar/center_bot]
 inherit = bar/default
-monitor = HDMI-0
+monitor = DP-0.3
 modules-left = 
 ;modules-center = myip
 modules-center = 

@@ -15,7 +15,7 @@ fi
 #sudo xrandr --addmode VGA1 1920x1080
 
 [ -f ~/.xprofile ] && source ~/.xprofile
-#[ -f ~/.bash_profile ] && source ~/.bash_profile
+[ -f ~/.bash_profile ] && source ~/.bash_profile
 #systemctl --user import-environment DISPLAY
 
 #exec awesome
@@ -26,8 +26,9 @@ fi
 #exec cinnamon-session
 #export XDG_CURRENT_DESKTOP=GNOME-Classic:GNOME
 #export GNOME_SHELL_SESSION_MODE=classic
-#exec gnome-session --session=gnome=classic
+#exec gnome-session
 #XDG_CURRENT_DESKTOP=XFCE4 DESKTOP_SESSION=xfce4
 #exec gnome-session
 #exec startxfce4
 exec i3
+
